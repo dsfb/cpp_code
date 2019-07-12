@@ -125,7 +125,7 @@ public:
         
         bool leftWay = leaf->left != nullptr;
         bool rightWay = leaf->right != nullptr;
-        bool oneWay = (leftWay != rightWay) ? true : false;
+        bool oneWay = leftWay != rightWay;
         bool noWay = leftWay == false && rightWay == false;
         bool twoWays = leftWay == true && rightWay == true;
 
