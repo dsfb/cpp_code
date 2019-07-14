@@ -7,10 +7,12 @@ It should return true when class C is derived from class P and false otherwise.
 my solution:
 g++ -std=c++17 inheritance_is_derived_from.cpp -o main && ./main
 1) a class is polimorphic when it has one or more virtual method
-2) you can not create an object of abstract class
-3) abstract class means you have a pure viaritual method
-4) your destructor must have a body to remowing of an object
-5) you must have a virtual destructor if you remove an obeject by using a pointer to base class. a pointer to base class does not know about destructor of child-part. 
+2) you cannot create an object of an abstract class
+3) an abstract class means you have some pure virtual method
+4) your destructor of base class must have a body to remove of an object fully
+5) you must have a virtual destructor if you remove an obeject by using
+ a pointer to base class. a pointer to base class does not know about
+  destructor of child-part. 
  */
 
 #include <iostream>
