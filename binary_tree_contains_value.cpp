@@ -1,6 +1,6 @@
 /*
 you need create a binary tree 
-you must rwite a method to check if a value contains or not
+you must write a method to check if a value contains or not
 Aleksander Czastuchin
 first version - 2017
 second verison - 2019
