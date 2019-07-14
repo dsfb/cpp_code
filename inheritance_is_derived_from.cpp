@@ -10,11 +10,6 @@ using std::cout;
 using std::endl;
 using std::boolalpha;
 
-class not_polimorphic{
-	private:
-	virtual void method() {};
-};
-
 class abstract{
 	protected:
 	virtual void empty() = 0;
