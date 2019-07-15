@@ -6,6 +6,8 @@ and returns the smallest positive integer /
 
 Aleksander Czastuhin
 2019
+g++ -std=c++17 smallest_positive_integer_that_does_not_occur_in_vector.cpp -o main.exe
+
 */
 #include <algorithm>
 #include <vector>
@@ -40,8 +42,8 @@ int solution(vector<int> &A)
 
 int main()
 {
-    vector<int> a = {-5, -4, -3, -2, 0, 2, 3, 4 , 5};
+    vector<int> array = {-5, -4, -3, -2, 0, 2, 3, 4 , 5};
     // get smallest positive that does not occurs
-    solution();
+    cout << solution(array);
     return 0;
 }
