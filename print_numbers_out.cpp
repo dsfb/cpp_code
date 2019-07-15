@@ -6,7 +6,6 @@ using std::endl;
 using std::string;
 
 void solution(int N) {
-    // write your code in C++14 (g++ 6.2.0)
     if (N < 0)
         return;
         
@@ -35,4 +34,9 @@ void solution(int N) {
             else 
         cout << i << endl;
     }
+}
+
+int main()
+{
+    return 0;
 }
