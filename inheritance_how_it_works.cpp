@@ -1,4 +1,4 @@
-/*show me how works an inharitance in C++ */
+/* show me how does an inharitance works in C++ */
 
 // kształt
 class shape
