@@ -12,6 +12,7 @@ g++ -std=c++17 matrix_determinant_recursive.cpp -o main.exe
 using std::array;
 using std::cout;
 using std::endl;
+using std::boolalpha;
 
 template <typename type, int size>
 class matrix : public array<array<type, size>, size>
@@ -56,26 +57,30 @@ public:
         
     }
 
-    int determinant()
+    int determinant(bool& is_ok)
     {
-        return determinant_recursive(this);
+        return determinant_recursive(this, is_ok);
     }
 
     //tempalate <typename type, typyname types>
-    static int determinant_recursive(matrix* const m)
+    static int determinant_recursive(matrix* const m, bool& is_ok)
     {
-        if (m->empty())
+        if (m->empty()) {
+            is_ok - false;
             return 0; 
+        }
 
         // a11 a12
         // a21 a22
         // det2 = a11*a22 - a21*a12
-        if (m->size() == 2)
+        if (m->size() == 2) {
+            is_ok = true;
             return m->el(1,1)*m->el(2,2) - m->el(2,1)*m->el(1,2);
-
+        }
         // a lot to do =)
 
 
+        is_ok = false;
         return 0;
     }
 
@@ -97,6 +102,9 @@ int main()
     m.set_row<1>(4, 6);
     //m.set_row<1>(1,2,3,4,5);
     m.print();
-    cout << "determinamt 2 = " << m.determinant();
+
+    bool is_ok;
+    cout << "determinamt 2 = " << m.determinant(is_ok) << endl;
+    cout << boolalpha << "is ok = " << is_ok;
     return 0;
 }
