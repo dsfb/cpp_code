@@ -103,7 +103,7 @@ int main()
     //m.set_row<1>(1,2,3,4,5);
     m.print();
 
-    bool is_ok;
+    bool is_ok = false;
     cout << "determinamt 2 = " << m.determinant(is_ok) << endl;
     cout << boolalpha << "is ok = " << is_ok;
     return 0;
