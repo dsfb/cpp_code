@@ -2,6 +2,7 @@
 iterator of vector has invalidation when:
 1) capacity changed (by using push_back() or insert() method whatever)
 
+Aleksander Czastuchin
 g++ -std=c++17 -o main.exe iterator_invalidation.cpp
  */
 #include <iostream>
