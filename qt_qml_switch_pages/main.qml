@@ -1,3 +1,12 @@
+/*
+it is my very fast implementation of way to show pages by turns.
+i created array with elements and show them by using stack view.
+i used timer to switch pages too.
+
+Aleksander Czastuchin
+qt 5.7, 2019
+*/
+
 import QtQuick 2.7
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.0 // for container
@@ -57,6 +66,7 @@ Window {
 
             // 0 < 2 -> 1
             // 1 < 2 -> 2
+	    // 2 < 2 -> 0 
             if (index < list.length) {
                 stack.clear();
                 console.log(index);
