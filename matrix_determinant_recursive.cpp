@@ -16,6 +16,10 @@ using std::cout;
 using std::endl;
 using std::list;
 
+class matrix2 : public list <list<int>>
+{
+};
+
 template <typename type, int size>
 class matrix : public array<array<type, size>, size>
 {
