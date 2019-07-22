@@ -3,7 +3,9 @@
   I implemented 3 ways for move the text
   I will able to combine some of them together if I want
 
+  qt 5.7
   Aleksander Czastuchin
+  rok 2019, lipiec
 */
 import QtQuick 2.7
 import QtQuick.Window 2.2
