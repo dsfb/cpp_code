@@ -5,6 +5,7 @@
 *.lib
 *.qbs
 *.qbs*
-`
+
 *Debug/
+main
 
