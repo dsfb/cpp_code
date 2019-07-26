@@ -15,9 +15,13 @@ Aleksander Czastuhin
 */
 
 #include <iostream>
+#include <vector>
 
+using std::begin;
 using std::cout;
+using std::end;
 using std::endl;
+using std::vector;
 
 template <typename type = int, typename... types>
 type sum(types... args)
@@ -40,14 +44,20 @@ void print_all(types... args)
 template <typename type = int, typename... types>
 void fill_array(types... args)
 {
-    if (sizeof...(args) == 0)
+    const int size = sizeof...(args);
+    bool is_empty = size == 0;
+
+    if (is_empty)
         return;
 
-    type* array = new type(sizeof...(args));
+    //type* array = new type(sizeof...(args));
+    vector<type> array(sizeof...(args));
+
     int i = 0;
     ((array[i++] = args), ...);
 
-    delete[] array;
+    for (auto&& element : array)
+        cout << element << endl;
 }
 
 template <typename type = int, typename... types>
@@ -64,7 +74,7 @@ int main()
 {
     //cout << sum(5, 5);
     //print_all(1, 2, 3, 4, 5);
-    //fill_array(1, 2, 3, 4, 5);
-    print_all_new_line(1, 2, 3, 4, 5);
+    fill_array(1, 2, 3, 4, 5);
+    //print_all_new_line(1, 2, 3, 4, 5);
     return 0;
 }
