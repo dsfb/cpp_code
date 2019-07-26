@@ -5,6 +5,7 @@ variadic template
 sizeof...()
 unary fold
 
+g++ -std=c++17 cpp17_fold_expression.cpp -o main && ./main
 -std=s++17
 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html
 
