@@ -56,7 +56,7 @@ void print_all_new_line(types... args)
     if (sizeof...(args) == 0)
         return;
 
-    auto print = [&](const type& a) { cout << a << endl; };
+    auto print = [](const type& a) { cout << a << endl; };
     (print(args), ...);
 }
 
