@@ -3,7 +3,8 @@ I learn:
 fold expression
 variadic template
 sizeof...()
-unary fold
+template... types
+unary/binary fold
 
 g++ -std=c++17 cpp17_fold_expression.cpp -o main && ./main
 -std=s++17
