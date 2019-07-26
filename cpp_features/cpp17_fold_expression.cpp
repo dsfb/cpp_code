@@ -7,6 +7,9 @@ unary fold
 
 -std=s++17
 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html
+
+Aleksander Czastuhin
+2019 rok, koniec lipca
 */
 
 #include <iostream>
