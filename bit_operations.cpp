@@ -37,12 +37,12 @@ uint32 set_ip_address(uint32 one, uint32 two, uint32 three, uint32 four)
 void print_ip_address(const uint32& ip)
 {
     cout << std::dec;
+    uint32 mask = 0;
+    mask = mask | 255;
+    //cout << bits(mask) << endl;
     for (short i = 3; i >= 0; i--)
     {
-        //cout << bits((ip >> 8 * i)) << endl;
-        uint32 mask = 0;
-        mask = mask | 255;
-        //cout << bits(mask) << endl;
+        //cout << bits((ip >> 8 * i)) << endl;   
         cout << static_cast<short>((ip >> 8 * i) & mask) << '.';
     }
 }
