@@ -43,7 +43,7 @@ void print_ip_address(const uint32& ip)
     for (short i = 3; i >= 0; i--)
     {
         //cout << bits((ip >> 8 * i)) << endl;   
-        cout << static_cast<short>((ip >> 8 * i) & mask) << '.';
+        cout << ((ip >> 8 * i) & mask) << '.';
     }
 }
 
