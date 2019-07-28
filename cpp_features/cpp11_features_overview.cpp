@@ -1,5 +1,7 @@
 /*
 g++ -std=c++11 cpp11_features_overview.cpp -o main
+
+Aleksander Czastuchin
  */
 #include <iostream>
 #include <vector>
