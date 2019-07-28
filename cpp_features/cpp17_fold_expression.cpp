@@ -7,7 +7,7 @@ template... types
 unary/binary fold
 
 g++ -std=c++17 cpp17_fold_expression.cpp -o main && ./main
--std=s++17
+-std=c++17
 http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2014/n4295.html
 
 Aleksander Czastuhin
@@ -60,13 +60,13 @@ void fill_array(types... args)
         cout << element << endl;
 }
 
-template <typename type = int, typename... types>
+template <typename... types>
 void print_all_new_line(types... args)
 {
     if (sizeof...(args) == 0)
         return;
 
-    auto print = [](const type& a) { cout << a << endl; };
+    auto print = [](const auto& a) { cout << a << endl; };
     (print(args), ...);
 }
 
@@ -84,7 +84,7 @@ int main()
     //cout << sum(5, 5);
     //print_all(1, 2, 3, 4, 5);
     //fill_array(1, 2, 3, 4, 5);
-    //print_all_new_line(1, 2, 3, 4, 5);
-    print_all_new_line2(1, 2, 3, 4, 5);
+    print_all_new_line(1, 2, 3, 4, 5);
+    //print_all_new_line2(1, 2, 3, 4, 5);
     return 0;
 }
