@@ -1,10 +1,12 @@
+/*
+g++ -std=c++17 cpp17_variadic_inheritance.cpp -o main && ./main
+Aleksander Czastuchin
+ */
 #include <iostream>
-#include <string>
 #include <type_traits>
 
 using std::cout;
 using std::endl;
-using std::string;
 
 class boss;
 #define is_boss(y) std::is_base_of_v<boss, decltype(y)>
@@ -30,7 +32,7 @@ struct boss : creature
 template <typename ... types>
 struct monster : types ...
 {
-    monster() : types() ...
+    monster() // : types() ...
     {
         cout << "monster()" << endl;
     }
