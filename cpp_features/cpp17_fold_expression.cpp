@@ -70,11 +70,21 @@ void print_all_new_line(types... args)
     (print(args), ...);
 }
 
+template <typename... types>
+void print_all_new_line2(types... args)
+{
+    if (sizeof...(args) == 0)
+        return;
+
+    ([args]{ cout << args << endl; }(), ...);
+}
+
 int main()
 {
     //cout << sum(5, 5);
     //print_all(1, 2, 3, 4, 5);
-    fill_array(1, 2, 3, 4, 5);
+    //fill_array(1, 2, 3, 4, 5);
     //print_all_new_line(1, 2, 3, 4, 5);
+    print_all_new_line2(1, 2, 3, 4, 5);
     return 0;
 }
