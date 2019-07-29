@@ -45,7 +45,6 @@ void print_matrix(types... args)
     cout << endl;
 }
 
-// this functio prints any matrix
 template <typename... types>
 void print_sub_matrix(types... args)
 {
