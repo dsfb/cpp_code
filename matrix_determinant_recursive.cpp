@@ -16,13 +16,41 @@ using std::cout;
 using std::endl;
 using std::list;
 
-class matrix2 : public list <list<int>>
+// this functio prints any matrix
+template <typename... types>
+void print_matrix(types... args)
 {
+    auto count = sizeof...(args);
+    bool is_zero = count == 0;
+    bool is_not_square = count % 2 != 0;
+
+    if (is_zero && is_not_square)
+        return;
+
+    int size = (count == 4) ? 2 : count / 4;
+    //cout << "size = " << size << endl;
+    int line = 0;
+
+    auto print_line = [&, size](const auto& arg) mutable {
+        if (line == size) {
+            line = 1;
+            cout << endl;
+        } else
+            line++;
+
+        cout << arg << ' ';
+    };
+
+    ((print_line(args)), ...);
+    cout << endl;
+}
+
+// it is will be my second implementation
+class matrix2 : public list<list<int>> {
 };
 
 template <typename type, int size>
-class matrix : public array<array<type, size>, size>
-{
+class matrix : public array<array<type, size>, size> {
 public:
     template <type row_number, typename... types>
     void set_row(types... args)
@@ -30,8 +58,7 @@ public:
         // show me count of given arguments
         ///cout << sizeof...(args) << endl;
 
-        if (sizeof...(args) != this->size())
-        {
+        if (sizeof...(args) != this->size()) {
             cout << "it is wrong size" << endl;
             return;
         }
@@ -40,14 +67,13 @@ public:
         //(cout << ... << args) << endl;
 
         int i = 0;
-        auto &row = this->operator[](row_number);
+        auto& row = this->operator[](row_number);
         ((row[i++] = args), ...);
     }
 
     void print()
     {
-        for (int i = 0; i < this->size(); i++)
-        {
+        for (int i = 0; i < this->size(); i++) {
             /* for (int k = 0; k < this->size(); k++)
             {
                 const auto& row = this->operator[](i);
@@ -55,23 +81,22 @@ public:
                 cout << column << ' ';
             }*/
 
-            for (const auto &e : this->operator[](i))
+            for (const auto& e : this->operator[](i))
                 std::cout << e << ' ';
 
             cout << endl;
         }
     }
 
-    int determinant(bool &is_ok)
+    int determinant(bool& is_ok)
     {
         return determinant_recursive(this, is_ok);
     }
 
     //tempalate <typename type, typyname types>
-    static int determinant_recursive(matrix *const m, bool &is_ok)
+    static int determinant_recursive(matrix* const m, bool& is_ok)
     {
-        if (m->empty())
-        {
+        if (m->empty()) {
             is_ok - false;
             return 0;
         }
@@ -79,13 +104,10 @@ public:
         // a11 a12
         // a21 a22
         // det2 = a11*a22 - a21*a12
-        if (m->size() == 2)
-        {
+        if (m->size() == 2) {
             is_ok = true;
             return m->el(1, 1) * m->el(2, 2) - m->el(2, 1) * m->el(1, 2);
-        }
-        else if (m->size() == 3)
-        {
+        } else if (m->size() == 3) {
             // a11 a12 a12
             // a21 a22 a23
             // a31 a32 a33
@@ -129,21 +151,21 @@ public:
 private:
     type el(int row_index, int column_index)
     {
-        auto &row = this->operator[](row_index - 1);
+        auto& row = this->operator[](row_index - 1);
         // warning: out of range
         return row[column_index - 1];
     }
 
     void set(int row_index, int column_index, type value)
     {
-        auto &row = this->operator[](row_index - 1);
+        auto& row = this->operator[](row_index - 1);
         row[column_index - 1] = value;
     }
 };
 
 int main()
 {
-    matrix<int, 2> m;
+    /*matrix<int, 2> m;
     //m[1][1] = 4;
     m.set_row<0>(3, 8);
     m.set_row<1>(4, 6);
@@ -152,6 +174,13 @@ int main()
 
     bool is_ok = false;
     cout << "determinamt 2 = " << m.determinant(is_ok) << endl;
-    cout << boolalpha << "is ok = " << is_ok;
+    cout << boolalpha << "is ok = " << is_ok;*/
+
+    print_matrix(1, 2, 3, 4);
+    print_matrix(1, 2, 3, 4, 5,
+        1, 2, 3, 4, 5,
+        1, 2, 3, 4, 5,
+        1, 2, 3, 4, 5);
+
     return 0;
 }
