@@ -45,6 +45,70 @@ void print_matrix(types... args)
     cout << endl;
 }
 
+// this functio prints any matrix
+template <typename... types>
+void print_sub_matrix(types... args)
+{
+    auto count = sizeof...(args);
+    bool is_zero = count == 0;
+    bool is_not_square = count % 2 != 0;
+
+    if (is_zero && is_not_square)
+        return;
+
+    int size = (count == 4) ? 2 : count / 4;
+    cout << "size = " << size << endl;
+    int line = 0;
+
+    int ignored_row = 0;
+    int ignored_column = 0;
+    int row = 0;
+    // kolumna - column  |ˈkɑːləm|
+    int column = 0;
+
+    auto print = [&](const auto& arg) mutable {
+        bool can_print = row != 0 && column != ignored_column;
+        bool end_line = line == size;
+
+        if (end_line) {
+            line = 1;
+            cout << endl;
+            // zwiększam row jak osiągnę koniec linii
+            // column = 0 na koczątku linii
+            row++;
+            column = 0;
+        } else {
+            ++line;
+            ++column;
+        }
+
+        if (!can_print)
+            return;
+
+        cout << arg;
+        //cout << '[' << row + 1 << '.' << column + 1 << ']';
+        cout << ' ';
+    };
+
+    // print default matrix
+    print_matrix(args...);
+
+    // print sub matrixes
+    for (int i = 0; i < size; i++) {
+        line = 1;
+        row = 0;
+        column = 0;
+        ignored_column = i;
+
+        cout << "ignored = " << ignored_row + 1 << ignored_column + 1 << endl;
+
+        // zagląda do wszystkich elementów
+        ((print(args)), ...);
+        cout << endl;
+    }
+    cout << endl;
+}
+
 // it is will be my second implementation
 class matrix2 : public list<list<int>> {
 };
@@ -176,11 +240,12 @@ int main()
     cout << "determinamt 2 = " << m.determinant(is_ok) << endl;
     cout << boolalpha << "is ok = " << is_ok;*/
 
-    print_matrix(1, 2, 3, 4);
-    print_matrix(1, 2, 3, 4, 5,
-        1, 2, 3, 4, 5,
-        1, 2, 3, 4, 5,
-        1, 2, 3, 4, 5);
+    //print_matrix(1, 2, 3, 4);
+    print_sub_matrix(
+        11, 12, 13, 14,
+        21, 22, 23, 24,
+        31, 32, 33, 34,
+        41, 42, 43, 44);
 
     return 0;
 }
