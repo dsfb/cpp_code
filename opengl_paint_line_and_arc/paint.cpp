@@ -1,4 +1,4 @@
-﻿#include "Paint.h"
+﻿#include "paint.h"
 #include <cmath>
 
 using std::atan2;
