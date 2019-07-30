@@ -1,8 +1,8 @@
 ﻿#include "paint.h"
 #include <cmath>
 
-using std::atan2;
-using std::sin;
+//using std::atan2;
+//using std::sin;
 using namespace std;
 
 float VectorLenght(float x1, float y1, float x2, float y2)
