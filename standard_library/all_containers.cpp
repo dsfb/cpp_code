@@ -61,7 +61,7 @@ void std_array_test()
     cout << endl;
 }
 
-int main()
+int main(const int args_count, const char** args)
 {
     // the dynamic array
     //std_vector_test();
