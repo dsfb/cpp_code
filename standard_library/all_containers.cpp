@@ -1,5 +1,5 @@
 /*
-++ -std=c++17 all_containers.cpp -o main && ./main
+g++ -std=c++17 all_containers.cpp -o main && ./main
 Aleksander Czastuchin
 2019, summer
 */
@@ -8,9 +8,27 @@ Aleksander Czastuchin
 #include <iostream>
 #include <map>
 #include <utility> // std::pair<,>
+#include <variant>
 #include <vector>
 
 using namespace std;
+
+void std_variant_test()
+{
+    variant<int, char, bool> v;
+    v = 2019;
+    v = 'a';
+    v = true;
+
+    const bool current_is_bool = std::holds_alternative<bool>(v);
+    cout << "current_is_bool = " << boolalpha << current_is_bool << endl;
+
+    if (current_is_bool)
+        cout << std::get<bool>(v) << endl;
+
+    const bool current_is_int = std::get_if<int>(&v) != nullptr;
+    cout << "current_is_int = " << current_is_int << endl;
+}
 
 void std_pair_test()
 {
@@ -74,7 +92,11 @@ int main(const int args_count, const char** args)
     //std_map_test();
 
     // it is a simple pair - key with its value. nothing special
-    std_pair_test();
+    //std_pair_test();
+
+    // unia - union  |ˈjuːniən|
+    // it is new generation of a union
+    std_variant_test();
 
     return 0;
 }
