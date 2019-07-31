@@ -27,6 +27,15 @@ void std_initializer_list_test()
 
     print({ 1, 2, 3, 4, 5 });
     print({ 1, 2, 3 });
+
+    // wooooow
+    auto what_is_it = { 1 };
+    const bool is_init_list = std::is_same_v<
+        decltype(what_is_it),
+        initializer_list<int>>;
+
+    cout << boolalpha;
+    cout << is_init_list << endl;
 }
 
 void std_variant_test()
