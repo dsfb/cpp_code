@@ -4,11 +4,12 @@ Aleksander Czastuchin
 2019, summer
 */
 
+#include <algorithm>
 #include <array>
 #include <initializer_list> // c++11
 #include <iostream>
 #include <map>
-#include <set>
+#include <set> // std::set<key>
 #include <utility> // std::pair<,>
 #include <variant>
 #include <vector>
@@ -69,6 +70,7 @@ void std_map_test()
 {
     map<int, char> m;
     m.insert({ 1, 'a' });
+    //m.insert({ 1, 'a' }); // error: only unique keys
     m.emplace(2, 'b');
 
     const bool is_here = m.find(1) != std::end(m);
@@ -107,6 +109,27 @@ void std_array_test()
 
 void std_set_test()
 {
+    using key = int;
+
+    set<key> s;
+    s.insert(10);
+    s.insert(20);
+    s.emplace(-1);
+
+    const bool contains_10 = s.find(10) != std::end(s);
+    const unsigned grether_that_zero = std::count_if(s.begin(), s.end(),
+        [](const key& element) { return element > 0; });
+
+    cout << boolalpha;
+    cout << "set's size = " << s.size() << endl;
+    cout << "it contains 10 = " << contains_10 << endl;
+    cout << "grether_that_zero = " << grether_that_zero << endl;
+
+    set<key> s2;
+    s2.merge(s);
+
+    for (const key& k : s2)
+        cout << k << ", ";
 }
 
 int main(const int args_count, const char** args)
@@ -114,7 +137,7 @@ int main(const int args_count, const char** args)
     // the dynamic array
     //std_vector_test();
 
-    // c++11, std::array - static array
+    // c++11, std::array - it is static array
     //std_array_test();
 
     // collection of key-value pairs, sorted by keys, keys are unique
@@ -129,8 +152,11 @@ int main(const int args_count, const char** args)
     //std_variant_test();
 
     // is a lightweight proxy object that provides access
-    //  to an array of objects of type const T
-    std_initializer_list_test();
+    // to an array of objects of one type
+    //std_initializer_list_test();
+
+    // the std::set contains a sorted set of unique key-objects
+    std_set_test();
 
     return 0;
 }
