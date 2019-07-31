@@ -6,6 +6,7 @@ Aleksander Czastuchin
 
 #include <algorithm>
 #include <array>
+#include <cstring>
 #include <initializer_list> // c++11
 #include <iostream>
 #include <list>
@@ -91,7 +92,14 @@ void std_vector_test()
     for (const auto& i : v)
         cout << i << endl;
 
-    cout << endl;
+    struct plain_data {
+        int a, b;
+    } data;
+
+    // look at this ;)
+    memcpy(&data, v.data(), sizeof(data));
+    cout << "data.a = " << data.a << endl;
+    cout << "data.b = " << data.b << endl;
 }
 
 void std_array_test()
@@ -187,7 +195,9 @@ void std_list_test()
 int main(const int args_count, const char** args)
 {
     // the dynamic array
-    //std_vector_test();
+    // + holds element in one memory space
+    // + you can use memcpy(to, from, how much)
+    std_vector_test();
 
     // c++11, std::array - it is static array
     //std_array_test();
@@ -216,6 +226,6 @@ int main(const int args_count, const char** args)
     // list
     // + fast insert and remove
     // - no find() or contains() method
-    std_list_test();
+    //std_list_test();
     return 0;
 }
