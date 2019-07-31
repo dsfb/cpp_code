@@ -8,6 +8,7 @@ Aleksander Czastuchin
 #include <array>
 #include <initializer_list> // c++11
 #include <iostream>
+#include <list>
 #include <map>
 #include <set> // std::set<key> and std::multiset<key>
 #include <utility> // std::pair<,>
@@ -148,6 +149,41 @@ void std_multiset_test()
         [](const short& k) { cout << k << '\n'; });
 }
 
+void std_list_test()
+{
+    using type = short;
+    list<type> l;
+
+    auto push = [&l](const initializer_list<type>& from) {
+        for (const type& what : from) {
+            using push_method_ptr
+                = void (list<type>::*)(const type&);
+            push_method_ptr push_method = nullptr;
+            if (what >= 0)
+                push_method = &list<type>::push_back;
+            else
+                push_method = &list<type>::push_front;
+
+            // fucking hardcore
+            (l.*push_method)(what);
+        }
+    };
+
+    auto print = [&l]() {
+        std::for_each(
+            l.begin(), l.end(),
+            [](const type& e) {
+                cout << e << ", ";
+            });
+        cout << '\n';
+    };
+
+    push({ -3, -2, -1, 1, 2, 3, 0 });
+    print();
+    l.sort();
+    print();
+}
+
 int main(const int args_count, const char** args)
 {
     // the dynamic array
@@ -175,7 +211,11 @@ int main(const int args_count, const char** args)
     //std_set_test();
 
     // collection of keys, sorted by keys
-    std_multiset_test();
+    //std_multiset_test();
 
+    // list
+    // + fast insert and remove
+    // - no find() or contains() method
+    std_list_test();
     return 0;
 }
