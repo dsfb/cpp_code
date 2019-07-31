@@ -5,6 +5,7 @@ Aleksander Czastuchin
 */
 
 #include <array>
+#include <initializer_list> // c++11
 #include <iostream>
 #include <map>
 #include <utility> // std::pair<,>
@@ -12,6 +13,21 @@ Aleksander Czastuchin
 #include <vector>
 
 using namespace std;
+
+void std_initializer_list_test()
+{
+    auto print = [](initializer_list<int> l) {
+        vector<int> pack { l };
+
+        for (const auto& e : pack)
+            cout << e << ',';
+
+        cout << '\n';
+    };
+
+    print({ 1, 2, 3, 4, 5 });
+    print({ 1, 2, 3 });
+}
 
 void std_variant_test()
 {
@@ -96,7 +112,11 @@ int main(const int args_count, const char** args)
 
     // unia - union  |ˈjuːniən|
     // it is new generation of a union
-    std_variant_test();
+    //std_variant_test();
+
+    // is a lightweight proxy object that provides access
+    //  to an array of objects of type const T
+    std_initializer_list_test();
 
     return 0;
 }
