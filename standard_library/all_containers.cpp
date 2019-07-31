@@ -8,6 +8,7 @@ Aleksander Czastuchin
 #include <initializer_list> // c++11
 #include <iostream>
 #include <map>
+#include <set>
 #include <utility> // std::pair<,>
 #include <variant>
 #include <vector>
@@ -104,6 +105,10 @@ void std_array_test()
     cout << endl;
 }
 
+void std_set_test()
+{
+}
+
 int main(const int args_count, const char** args)
 {
     // the dynamic array
@@ -112,7 +117,7 @@ int main(const int args_count, const char** args)
     // c++11, std::array - static array
     //std_array_test();
 
-    // std::map is key-value SORTED container
+    // collection of key-value pairs, sorted by keys, keys are unique
     // the key must have implemented opetator<
     //std_map_test();
 
