@@ -9,7 +9,7 @@ Aleksander Czastuchin
 #include <initializer_list> // c++11
 #include <iostream>
 #include <map>
-#include <set> // std::set<key>
+#include <set> // std::set<key> and std::multiset<key>
 #include <utility> // std::pair<,>
 #include <variant>
 #include <vector>
@@ -132,6 +132,22 @@ void std_set_test()
         cout << k << ", ";
 }
 
+void std_multiset_test()
+{
+    multiset<short> m;
+    m.insert(-3);
+    m.insert(-3);
+    m.emplace(3);
+    // Inserts a new element into the container
+    // as close as possible to the position just before hint
+    m.emplace_hint(m.begin(), 4);
+
+    std::for_each(
+        m.begin(),
+        m.end(),
+        [](const short& k) { cout << k << '\n'; });
+}
+
 int main(const int args_count, const char** args)
 {
     // the dynamic array
@@ -156,7 +172,10 @@ int main(const int args_count, const char** args)
     //std_initializer_list_test();
 
     // the std::set contains a sorted set of unique key-objects
-    std_set_test();
+    //std_set_test();
+
+    // collection of keys, sorted by keys
+    std_multiset_test();
 
     return 0;
 }
