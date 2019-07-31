@@ -19,7 +19,7 @@ using namespace std;
 void std_initializer_list_test()
 {
     auto print = [](initializer_list<int> l) {
-        vector<int> pack { l };
+        vector<int> pack(l);
 
         for (const auto& e : pack)
             cout << e << ',';
