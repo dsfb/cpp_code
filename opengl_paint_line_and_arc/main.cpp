@@ -439,6 +439,7 @@ Program: Wielolinie w 2D (zadanie testowe)
 Autor: Aleksander Czastuchin
 Użyłem: GLUT 3.7 beta (The OpenGL Utility Toolkit)
 Kiedy zrobiłem: robiłem Fri May 12 10:54:24 2017
+Przeniosłem na Ubuntu: czw, 1 sie 2019, 11:52:01 CEST
 
 1) add windows environment path for gcc and cmake
 C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin
