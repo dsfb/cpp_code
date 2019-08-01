@@ -71,11 +71,11 @@ void MenuClickEvent(int itemId)
         // номер записи, метка, index selected
         if (paint.CurrentMode == Mode::Line
             && !paint.empty()) {
-            glutChangeToMenuEntry(itemId + 1, "Tryb linii", MENU_ITEM_SET_MODE);
+            glutChangeToMenuEntry(itemId + 1, "Line mode", MENU_ITEM_SET_MODE);
             paint.CurrentMode = Mode::Arc;
         } else {
             paint.CurrentMode = Mode::Line;
-            glutChangeToMenuEntry(itemId + 1, "Tryb łuku", MENU_ITEM_SET_MODE);
+            glutChangeToMenuEntry(itemId + 1, "Arc mode", MENU_ITEM_SET_MODE);
         }
         break;
     case MENU_ITEM_UNDO:
@@ -85,10 +85,10 @@ void MenuClickEvent(int itemId)
         break;
     case MENU_ITEM_FINISH:
         if (paint.IsFinish) {
-            glutChangeToMenuEntry(itemId + 1, "Skończyć wielolinie", MENU_ITEM_FINISH);
+            glutChangeToMenuEntry(itemId + 1, "Finish multi-line", MENU_ITEM_FINISH);
             paint.IsFinish = false;
         } else {
-            glutChangeToMenuEntry(itemId + 1, "Kontynuować", MENU_ITEM_FINISH);
+            glutChangeToMenuEntry(itemId + 1, "Continue", MENU_ITEM_FINISH);
             paint.IsFinish = true;
         }
         break;
@@ -406,7 +406,7 @@ int main(int argc, char** argv)
     // настройка размера окна (ширина, высота)
     glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
     glutInitWindowPosition(200, 200);
-    glutCreateWindow("Wielolinie w 2D (Naciśnij RightClick żeby przejść do menu)");
+    glutCreateWindow("Wielolinie w 2D (do right click to open the menu)");
     // устанавливаем функцию отрисовки
     glutDisplayFunc(Display);
 
@@ -416,11 +416,11 @@ int main(int argc, char** argv)
 
     // buduję menu kontekstowe
     glutCreateMenu(MenuClickEvent);
-    glutAddMenuEntry("Cofnąć o krok", MENU_ITEM_UNDO);
-    glutAddMenuEntry("Tryb łuku", MENU_ITEM_SET_MODE);
-    glutAddMenuEntry("Skończyć wielolinie", MENU_ITEM_FINISH);
-    glutAddMenuEntry("Przywrócić element", MENU_ITEM_RESTORE);
-    glutAddMenuEntry("Usunąć wszystko", MENU_ITEM_REMOVE_ALL);
+    glutAddMenuEntry("Undo (one step back)", MENU_ITEM_UNDO);
+    glutAddMenuEntry("Arc mode", MENU_ITEM_SET_MODE);
+    glutAddMenuEntry("Finish multi-line", MENU_ITEM_FINISH);
+    glutAddMenuEntry("Redo (restore removed one)", MENU_ITEM_RESTORE);
+    glutAddMenuEntry("Remove all", MENU_ITEM_REMOVE_ALL);
     glutAttachMenu(GLUT_RIGHT_BUTTON);
 
     init2D(255.0f, 250.0f, 250.0f);
