@@ -10,6 +10,7 @@
 #endif
 
 #include <cmath>
+#include <queue>
 #include <string>
 
 using namespace std;
@@ -27,9 +28,38 @@ Paint paint;
 Point futurePoint;
 ArcInfo futureArc;
 bool isLine;
+queue<unsigned> changed_menu_items;
+
+void rename_menu_item()
+{
+    if (changed_menu_items.empty())
+        return;
+    unsigned item_number = changed_menu_items.front();
+    changed_menu_items.pop();
+
+    switch (item_number) {
+    case MENU_ITEM_SET_MODE:
+        // номер записи, метка, index selected
+        if (paint.CurrentMode == Mode::Arc
+            && !paint.empty()) {
+            glutChangeToMenuEntry(item_number + 1, "Line mode", MENU_ITEM_SET_MODE);
+        } else {
+            glutChangeToMenuEntry(item_number + 1, "Arc mode", MENU_ITEM_SET_MODE);
+        }
+        break;
+    case MENU_ITEM_FINISH:
+        if (!paint.IsFinish) {
+            glutChangeToMenuEntry(item_number + 1, "Finish multi-line", MENU_ITEM_FINISH);
+        } else {
+            glutChangeToMenuEntry(item_number + 1, "Continue", MENU_ITEM_FINISH);
+        }
+    }
+}
 
 void MouseClickEvent(int button, int state, int x, int y)
 {
+    rename_menu_item();
+
     if (button != GLUT_LEFT_BUTTON || paint.IsFinish)
         return;
     if (state != GLUT_DOWN)
@@ -71,12 +101,13 @@ void MenuClickEvent(int itemId)
         // номер записи, метка, index selected
         if (paint.CurrentMode == Mode::Line
             && !paint.empty()) {
-            glutChangeToMenuEntry(itemId + 1, "Line mode", MENU_ITEM_SET_MODE);
+            //glutChangeToMenuEntry(itemId + 1, "Line mode", MENU_ITEM_SET_MODE);
             paint.CurrentMode = Mode::Arc;
         } else {
             paint.CurrentMode = Mode::Line;
-            glutChangeToMenuEntry(itemId + 1, "Arc mode", MENU_ITEM_SET_MODE);
+            //glutChangeToMenuEntry(itemId + 1, "Arc mode", MENU_ITEM_SET_MODE);
         }
+
         break;
     case MENU_ITEM_UNDO:
         if (paint.CurrentMode == Mode::Line || (paint.CurrentMode == Mode::Arc && paint.size() > 1))
@@ -85,10 +116,10 @@ void MenuClickEvent(int itemId)
         break;
     case MENU_ITEM_FINISH:
         if (paint.IsFinish) {
-            glutChangeToMenuEntry(itemId + 1, "Finish multi-line", MENU_ITEM_FINISH);
+            //glutChangeToMenuEntry(itemId + 1, "Finish multi-line", MENU_ITEM_FINISH);
             paint.IsFinish = false;
         } else {
-            glutChangeToMenuEntry(itemId + 1, "Continue", MENU_ITEM_FINISH);
+            //glutChangeToMenuEntry(itemId + 1, "Continue", MENU_ITEM_FINISH);
             paint.IsFinish = true;
         }
         break;
@@ -99,6 +130,8 @@ void MenuClickEvent(int itemId)
         paint.RemoveAll();
         break;
     }
+
+    changed_menu_items.push(itemId);
 }
 
 void MouseMoveEvent(int x, int y)
