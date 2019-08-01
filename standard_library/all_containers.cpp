@@ -17,8 +17,20 @@ Aleksander Czastuchin
 #include <utility> // std::pair<,>
 #include <variant>
 #include <vector>
+#include <queue>
 
 using namespace std;
+
+void std_queue_test()
+{
+    queue<short> q;
+    q.push(1);
+    q.push(2);
+    q.emplace(2);
+    short first_in_queue = q.front();
+    q.pop();
+    cout << "first_in_queue = " << first_in_queue << endl; // 1
+}
 
 void std_tuple_test()
 {
@@ -264,6 +276,8 @@ int main(const int args_count, const char** args)
 
     // a fixed-size collection of heterogeneous values
     // like std::pair<> but can holds more values
-    std_tuple_test();
+    //std_tuple_test();
+
+    std_queue_test();
     return 0;
 }
