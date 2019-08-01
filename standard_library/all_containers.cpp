@@ -244,6 +244,7 @@ int main(const int args_count, const char** args)
     // - no find() or contains() method
     //std_list_test();
 
+    // any holds whatever you want
     std_any_test();
     return 0;
 }
