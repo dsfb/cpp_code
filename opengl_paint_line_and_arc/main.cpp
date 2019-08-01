@@ -2,7 +2,7 @@
 #include <cmath>
 #include <string>
 
-#include "Paint.h"
+#include "paint.h"
 #include "glut.h"
 #include "freeglut.h"
 
