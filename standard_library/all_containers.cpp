@@ -13,11 +13,26 @@ Aleksander Czastuchin
 #include <list>
 #include <map>
 #include <set> // std::set<key> and std::multiset<key>
+#include <tuple>
 #include <utility> // std::pair<,>
 #include <variant>
 #include <vector>
 
 using namespace std;
+
+void std_tuple_test()
+{
+    {
+        auto t1 = make_tuple<int, char, bool>(10, 'a', false);
+        bool get_bool;
+        std::tie(std::ignore, std::ignore, get_bool) = t1;
+        cout << "get_bool = " << get_bool << endl;
+    }
+
+    auto t2 = []() -> tuple<int, char, bool> { return { 20, 'b', true }; }();
+    auto [get_int, get_char, get_bool] = t2;
+    cout << "get_int = " << get_int << endl;
+}
 
 void std_initializer_list_test()
 {
@@ -245,6 +260,10 @@ int main(const int args_count, const char** args)
     //std_list_test();
 
     // any holds whatever you want
-    std_any_test();
+    ///std_any_test();
+
+    // a fixed-size collection of heterogeneous values
+    // like std::pair<> but can holds more values
+    std_tuple_test();
     return 0;
 }
