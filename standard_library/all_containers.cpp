@@ -5,6 +5,7 @@ Aleksander Czastuchin
 */
 
 #include <algorithm>
+#include <any>
 #include <array>
 #include <cstring>
 #include <initializer_list> // c++11
@@ -192,12 +193,27 @@ void std_list_test()
     print();
 }
 
+void std_any_test()
+{
+    any one = 1;
+    any two = true;
+    auto three = make_any<char>('w');
+
+    cout << boolalpha << endl;
+    cout << one.has_value() << endl;
+    cout << one.type().name() << endl;
+
+    int* one_value = any_cast<int>(&one);
+    if (one_value)
+        cout << *one_value << endl;
+}
+
 int main(const int args_count, const char** args)
 {
     // the dynamic array
     // + holds element in one memory space
     // + you can use memcpy(to, from, how much)
-    std_vector_test();
+    //std_vector_test();
 
     // c++11, std::array - it is static array
     //std_array_test();
@@ -227,5 +243,7 @@ int main(const int args_count, const char** args)
     // + fast insert and remove
     // - no find() or contains() method
     //std_list_test();
+
+    std_any_test();
     return 0;
 }
