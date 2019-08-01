@@ -494,6 +494,7 @@ g++ -std=c++17 -o arc.exe paint.cpp main.cpp -lopengl32 -lfreeglut -lglu32 -L. -
 dpkg --search /usr/include/GL/glu.h 
 dpkg --listfiles libglu1-mesa-dev:amd64 | grep lib
 g++ -std=c++17 -o arc paint.cpp main.cpp -lglut -lGL -lGLU
+LIBRARIES = -lglut -lMesaGL -lMesaGLU -lXmu -lXext -lXi -lX11 -lm
 ldd arc
 libglut.so.3 => /usr/lib/x86_64-linux-gnu/libglut.so.3 (0x00007ff4dc830000)
 libGL.so.1 => /usr/lib/x86_64-linux-gnu/libGL.so.1 (0x00007ff4dc5a4000)
