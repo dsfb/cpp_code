@@ -46,7 +46,7 @@ void parallel_incrementation()
         //printf("inside change_function()\n");
         
         while (change_me < 10) {
-        std::lock_guard<mutex> guad(sharing);
+        std::lock_guard<mutex> guard(sharing);
         results.push_back(++change_me);
         //std::chrono::milliseconds ms{change_me};
         //std::this_thread::sleep_for(ms);
