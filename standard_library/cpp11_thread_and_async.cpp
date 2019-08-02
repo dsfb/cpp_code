@@ -13,6 +13,11 @@ $ g++ -std=c++17 cpp11_thread_and_async.cpp -o main.exe && ./main.exe
 #include <chrono>
 
 using std::thread;
+using std::vector;
+using std::thread;
+using std::mutex;
+using std::chrono::duration;
+using type = unsigned;
 
 bool do_somethig(const bool arg)
 {
@@ -32,12 +37,6 @@ void async_test()
 
 void parallel_incrementation()
 {
-    using std::vector;
-    using std::thread;
-    using std::mutex;
-    using std::chrono::duration;
-    using type = unsigned;
-
     type change_me = 0;
     vector<type> results;
     vector<thread> threads;
