@@ -1,7 +1,7 @@
 /*
 I've decided to write quick implementation of the bubble sort algorithm.
 I like to train myself. I remember as once I've written this algorithm at
-university. It was long time ago. Well. Now it's time came to remember.
+university. It was long time ago. Well. I want to remember.
 
 Aleksander Czastuchin
 2019, summer
