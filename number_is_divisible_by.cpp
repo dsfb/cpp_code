@@ -12,7 +12,7 @@ using std::string;
 
 void solution(int N)
 {
-    if (N < 0)
+    if (N <= 0)
         return;
 
     for (int i = 1; i <= N; i++) {
