@@ -1,5 +1,5 @@
 /*
-  see as I can slide a long text using qml property animation
+ look at this example. I can slide a long text using qml property animation
   I implemented 3 ways for move the text
   I will able to combine some of them together if I want
 
