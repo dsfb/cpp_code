@@ -42,7 +42,7 @@ int main()
 	char b = 'd';
 	auto r = (int)a - (int)b;
 	cout << r << endl;
-    cout << boolalpha;
+        cout << boolalpha;
 	cout << isPalindrome("Deleveled");
 	return 0;
 }
