@@ -26,13 +26,9 @@ bool isPalindrome(const std::string& word)
         //  D(68) = d(100)
         // a == a     a == A         A == a
         if (a == b || a == b - 32 || b == a - 32)
-        {
             continue;
-        }
-        else
-        {
-            return false;
-        }
+        else return false;
+	    
         start++;
         end--;
     }
