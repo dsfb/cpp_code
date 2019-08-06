@@ -3,6 +3,7 @@ there is quick sort algorithm.
 I habe been implementing....
 g++ -std=c++17 quick_sort.cpp -o main
 http://www.algorytm.edu.pl/algorytmy-maturalne/quick-sort.html
+https://www.youtube.com/watch?v=2s717IFZLuU
 
 Aleksander Czastuchin
 2019
