@@ -83,8 +83,8 @@ void quick_sort(array_type& data, uint16 start, uint16 end)
     swap(data[end], data[left_side]);
     //print_array(data);
 
-    quick_sort(data, start, pivot_index);
-    quick_sort(data, pivot_index, end);
+    quick_sort(data, start, left_side);
+    quick_sort(data, left_side, end);
 }
 
 int main()
