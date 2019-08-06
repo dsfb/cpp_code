@@ -30,9 +30,10 @@ void print_array(array_type& numbers)
 
 void quick_sort(array_type& data, uint16 start, uint16 end)
 {
-    iterations_count++;
-    if (abs(start - end) <= 1)
+    if (abs(start - end) <= 2)
         return;
+
+    iterations_count++;
 
     auto swap = [](auto& a, auto& b) mutable {
         //cout << "a=" << a << ' ' << "b=" << b << endl;
