@@ -18,6 +18,7 @@ using std::cout;
 using std::endl;
 using uint16 = unsigned short;
 using array_type = array<uint16, 10>;
+uint16 iterations_count = 0;
 
 void print_array(array_type& numbers)
 {
@@ -29,6 +30,7 @@ void print_array(array_type& numbers)
 
 void quick_sort(array_type& data, uint16 start, uint16 end)
 {
+    iterations_count++;
     if (abs(start - end) <= 1)
         return;
 
@@ -79,7 +81,7 @@ void quick_sort(array_type& data, uint16 start, uint16 end)
     }
     cout << endl;
     swap(data[end], data[left_side]);
-    print_array(data);
+    //print_array(data);
 
     quick_sort(data, start, pivot_index);
     quick_sort(data, pivot_index, end);
@@ -89,7 +91,10 @@ int main()
 {
     array_type numbers = { 10, 1, 8, 7, 6, 5, 4, 3, 2, 9 };
     print_array(numbers);
+
     quick_sort(numbers, 0, 9);
     print_array(numbers);
+    cout << "iterations count = " << iterations_count << endl;
+
     return 0;
 }
