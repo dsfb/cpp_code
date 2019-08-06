@@ -32,38 +32,54 @@ void quick_sort(array_type& data, uint16 start, uint16 end)
         return;
 
     auto swap = [](auto& a, auto& b) mutable {
+        //cout << "a=" << a << ' ' << "b=" << b << endl;
         auto temp = a;
         a = b;
         b = temp;
     };
 
     const uint16 pivot_index = start + (abs(end - start) / 2);
-    uint16 pivot = data[pivot_index];
+    //uint16 pivot = data[pivot_index];
+    // przemieszczam pivot na koniec dla wygody
+    swap(data[end], data[pivot_index]);
+    print_array(data);
 
-    cout << "pivot value = " << pivot << endl;
-    cout << "pivot index = " << pivot_index << endl;
+    //cout << "pivot value = " << pivot << endl;
+    //cout << "pivot index = " << pivot_index << endl;
 
     uint16 left_side = start;
     uint16 right_side = end;
 
-    for (int i = start; i < end; i++) {
-        if (i < pivot_index && data[i] > pivot) {
-            swap(data[i], data[right_side]);
-            --right_side;
-        }
-        if (i > pivot_index && data[i] < pivot) {
+    for (int i = start; i < end; ++i) {
+        // szukamy elementów mniejszych od piwotu
+        if (data[i] < data[end]) {
             swap(data[i], data[left_side]);
             ++left_side;
         }
 
+        /*
         if (i == start)
             cout << '[';
-        cout << data[i] << ',';
-        if (i == end - 1)
+
+        if (i == pivot_index)
+            cout << '<';
+
+        cout << data[i];
+
+        if (i == pivot_index)
+            cout << '>';
+
+        if (i == end)
             cout << ']';
+        else
+            cout << ',';
+        //*/
+        //cout << "ls=" << left_side << " rs=" << right_side << endl;
     }
     cout << endl;
-    return;
+    swap(data[end], data[left_side]);
+    print_array(data);
+
     quick_sort(data, start, pivot_index);
     quick_sort(data, pivot_index, end);
 }
