@@ -24,6 +24,9 @@ void print_array(array<short, 10>& numbers)
 
 void bubble_sort(array<short, 10>& numbers)
 {
+    if(!numbers.size())
+        return;
+    
     //short iteration_count = 0;
     for (int k = numbers.size() - 1; k >= 0; --k) {
         for (int i = 0; i < k; i++) {
