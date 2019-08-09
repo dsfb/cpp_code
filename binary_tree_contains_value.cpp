@@ -58,18 +58,19 @@ struct binary_tree : node
 		return false;
 	}
 
-	template <typename type, typename ... types>
-	void add_pack(type arg, types ... args)
+	template </* typename type,*/ typename ... types>
+	void add_pack(/* type arg,*/ types ... args)
 	{
-		add_leaf(arg);
-		add_pack(args ...);
+		//add_leaf(arg);
+		//add_pack(args ...)
+		(add_leaf(args), ...); // c++17 I love you
 	}
 
-	template <typename type>
+	/*template <typename type>
 	void add_pack(type arg)
 	{
 		add_leaf(arg);
-	}
+	}//*/
 
 	void add_leaf(const int& value)
 	{
