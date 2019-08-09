@@ -143,7 +143,7 @@ private:
 		if (leaf->right)
 			remove_all(leaf->right);
 
-		//  I mustn't call ~node() and I remove like below
+		//  I mustn't call leaf->~node() yet and I remove like below
 		binary_tree::node::remove_all(leaf); // way one
 		//leaf->remove_all(leaf); // way two
 	}
