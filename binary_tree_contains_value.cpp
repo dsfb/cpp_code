@@ -27,7 +27,7 @@ struct node
 
 	virtual ~node()
 	{
-		cout << "destructor runs for " << value << '\n';
+		cout << "the destructor runs for " << value << '\n';
 		remove_all();
 	}
 
