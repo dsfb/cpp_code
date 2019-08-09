@@ -31,15 +31,15 @@ struct node
 	virtual ~node()
 	{
 		cout << "the destructor runs for " << value << '\n';
-		remove_all();
+		remove_all(this);
 	}
 
-	virtual void remove_all() 
+	virtual void remove_all(node* leaf) 
 	{
-		delete left;
-		delete right;
-		left = nullptr;
-		right = nullptr;
+		delete leaf->left;
+		delete leaf->right;
+		leaf->left = nullptr;
+		leaf->right = nullptr;
 	};
 };
 
@@ -133,7 +133,7 @@ struct binary_tree : node
 
 private:
 
-	void remove_all(node* leaf)
+	void remove_all(node* leaf) override
 	{
 		if (leaf->left)
 			remove_all(leaf->left);
@@ -141,11 +141,9 @@ private:
 		if (leaf->right)
 			remove_all(leaf->right);
 
-		/* if(dynamic_cast<binary_tree*>(leaf)) {
-			binary_tree::node::remove_all();
-		}*/
-		
-		leaf->remove_all();
+		//  I mustn't call ~node() and I remove like below
+		binary_tree::node::remove_all(leaf); // way one
+		//leaf->remove_all(leaf); // way two
 	}
 };
 
