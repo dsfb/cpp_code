@@ -116,7 +116,7 @@ struct binary_tree : node
 		if (leaf->left)
 			print(leaf->left);
 
-		if (leaf->left == nullptr && leaf->right == nullptr)
+		if (leaf->left && leaf->right)
 		cout << endl;
 		
 		if (leaf->right)
