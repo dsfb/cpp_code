@@ -34,6 +34,8 @@ struct node
 		remove_all(this);
 	}
 
+protected:
+
 	virtual void remove_all(node* leaf) 
 	{
 		delete leaf->left;
