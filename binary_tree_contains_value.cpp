@@ -144,7 +144,8 @@ private:
 		/* if(dynamic_cast<binary_tree*>(leaf)) {
 			binary_tree::node::remove_all();
 		}*/
-		else leaf->remove_all();
+		
+		leaf->remove_all();
 	}
 };
 
