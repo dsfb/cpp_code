@@ -23,6 +23,19 @@ struct node
 	int value;
 	node* left;
 	node* right;
+
+	virtual ~node()
+	{
+		cout << "destructor runs for " << value << '\n';
+		//delete left;
+		//delete right;
+	}
+
+	virtual void remove_all() 
+	{
+		delete left;
+		delete right;
+	};
 };
 
 struct binary_tree : node
@@ -106,14 +119,35 @@ struct binary_tree : node
 		if (leaf->right)
 			print(leaf->right);	
 	}
+
+	~binary_tree()
+	{
+		remove_all(this);
+	}
+
+private:
+
+	void remove_all(node* leaf)
+	{
+		if (leaf->left)
+			remove_all(leaf->left);
+		
+		if (leaf->right)
+			remove_all(leaf->right);
+
+		if(dynamic_cast<binary_tree*>(leaf)) {
+			binary_tree::node::remove_all();
+		}
+		else leaf->remove_all();
+	}
 };
 
 int main()
 {
 	binary_tree tree;
-	tree.add_pack(10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
+	//tree.add_pack(10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
 	tree.add_pack(20, 30, 40, 50, 60, 70);
-	tree.add_pack(21, 22, 23, 24, 25, 25);
+	//tree.add_pack(21, 22, 23, 24, 25, 25);
 	binary_tree::print(&tree);
 
 	cout << boolalpha;
