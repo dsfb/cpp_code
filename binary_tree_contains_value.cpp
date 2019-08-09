@@ -20,6 +20,7 @@ struct node
 		right = nullptr;
 		value = 0;
 	}
+
 	int value;
 	node* left;
 	node* right;
@@ -27,14 +28,15 @@ struct node
 	virtual ~node()
 	{
 		cout << "destructor runs for " << value << '\n';
-		//delete left;
-		//delete right;
+		remove_all();
 	}
 
 	virtual void remove_all() 
 	{
 		delete left;
 		delete right;
+		left = nullptr;
+		right = nullptr;
 	};
 };
 
