@@ -1,6 +1,9 @@
-/*
-you need create a binary tree 
-you must write a method to check if a value contains or not
+/* 
+hello. look at my code. I had to create a binary tree as a test for 
+a job interview. I had to write a method to check if a value contains
+ or not. I use newest C++ features here. Lastly I added the function
+for remove. I used a virtual desctructor and virtual.
+
 Aleksander Czastuchin
 first version - 2017
 second verison - 2019
@@ -138,9 +141,9 @@ private:
 		if (leaf->right)
 			remove_all(leaf->right);
 
-		if(dynamic_cast<binary_tree*>(leaf)) {
+		/* if(dynamic_cast<binary_tree*>(leaf)) {
 			binary_tree::node::remove_all();
-		}
+		}*/
 		else leaf->remove_all();
 	}
 };
@@ -148,14 +151,14 @@ private:
 int main()
 {
 	binary_tree tree;
-	//tree.add_pack(10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
+	tree.add_pack(10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
 	tree.add_pack(20, 30, 40, 50, 60, 70);
-	//tree.add_pack(21, 22, 23, 24, 25, 25);
+	tree.add_pack(21, 22, 23, 24, 25, 25);
 	binary_tree::print(&tree);
 
-	cout << boolalpha;
-	cout << binary_tree::contains(&tree, 22) << endl;
-	cout << binary_tree::contains(&tree, 100) << endl;
+	cout << boolalpha << '\n';
+	cout << binary_tree::contains(&tree, 22) << '\n';
+	cout << binary_tree::contains(&tree, 100) << '\n';
 
 
 	return 0;
