@@ -51,7 +51,7 @@ protected:
 struct binary_tree : node
 {
 	template <typename type>
-	static void visitor(const node* const& leaf, function<void (type)> callable)
+	static void visitor(const node* const& leaf, const function<void (type)>& callable)
 	{
 		callable(leaf->value); // do what you want
 		if (leaf->left)
