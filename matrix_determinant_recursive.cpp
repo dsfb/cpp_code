@@ -65,7 +65,7 @@ void print_sub_matrix(types... args)
     // kolumna - column  |ˈkɑːləm|
     int column = 0;
 
-    auto print = [&](const auto& arg) mutable {
+    auto print = [&](const auto& arg) {
         bool can_print = row != 0 && column != ignored_column;
         bool end_line = line == size;
 
