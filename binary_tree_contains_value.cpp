@@ -3,6 +3,8 @@ hello. look at my code. I had to create a binary tree as a test for
 a job interview. I had to write a method to check if a value contains
  or not. I use newest C++ features here. Lastly I added the function
 for remove. I used a virtual desctructor and virtual.
+what's more I added the visitor pattern support as good as it possible.
+the visitor it's real carte blanche. it permits do anything. 
 
 Aleksander Czastuchin
 first version - 2017
@@ -12,6 +14,7 @@ g++ -std=c++17 binary_tree_contains_value.cpp -o main.exe  && ./main.exe
  */
 #include <string>
 #include <iostream>
+#include <functional>
 
 using namespace std;
 
@@ -47,6 +50,16 @@ protected:
 
 struct binary_tree : node
 {
+	template <typename type>
+	static void visitor(const node* leaf, function<void (type)> callable)
+	{
+		callable(leaf->value); // do what you want
+		if (leaf->left)
+			visitor(leaf->left, callable);	
+		if (leaf->right)
+			visitor(leaf->right, callable);
+	}
+
 	static bool contains(const node* leaf, const int& value)
 	{
 		if (leaf->value == value)
@@ -160,6 +173,20 @@ int main()
 	cout << boolalpha << '\n';
 	cout << binary_tree::contains(&tree, 22) << '\n';
 	cout << binary_tree::contains(&tree, 100) << '\n';
+
+	cout << "\ngreater than 20\n";
+	bool there_is_23 = false;
+	binary_tree::visitor<int>(&tree,
+	 [&there_is_23](const auto& what) { 
+		 if (what == 23) {
+			 there_is_23 = true;
+		 }
+		 if (what > 20) {
+		 	cout << what << ", ";
+		 }
+	});
+
+	cout << "\nthere is 23 = " << there_is_23 << '\n';
 
 
 	return 0;
