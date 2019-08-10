@@ -160,7 +160,7 @@ public:
     static int determinant_recursive(matrix* const m, bool& is_ok)
     {
         if (m->empty()) {
-            is_ok - false;
+            is_ok = false;
             return 0;
         }
 
