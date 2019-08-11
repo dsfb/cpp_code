@@ -4,7 +4,7 @@
 using std::is_same_v;
 using std::cout;
 using std::boolalpha;
-#define nl '\n';
+#define nl '\n'
 
 using type = int;
 using const_type = const type;
