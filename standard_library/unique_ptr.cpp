@@ -1,4 +1,5 @@
-/* this this code I am testing to use std::unique_ptr
+/* in this code I am testing std::unique_ptr. I use here newest C++
+features and pointer's magic ;)
 
 g++ -std=c++17 unique_ptr.cpp -o main.exe && ./main.exe
 file:///D:/html_book_20190607/reference/en/cpp/memory/unique_ptr.html
