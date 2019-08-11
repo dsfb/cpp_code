@@ -22,7 +22,7 @@ struct type
         cout << "~type()" << nl;
     }
 
-    constexpr const static char* her_name = "Linda";
+    constexpr const static char* status = "offline";
 };
 
 int main()
@@ -63,8 +63,8 @@ int main()
         }
 
         // how to get a data
-        cout << "her name is " << ptr1->her_name << nl;
-        cout << "her name is " << (*ptr1).her_name << nl;
+        cout << "her name is " << ptr1->status << nl;
+        cout << "her name is " << (*ptr1).status << nl;
     }
 
     cout << nl;
