@@ -64,8 +64,8 @@ int main()
         }
 
         // how to get a data
-        cout << "her name is " << ptr1->status << nl;
-        cout << "her name is " << (*ptr1).status << nl;
+        cout << "her status is " << ptr1->status << nl;
+        cout << "her status is " << (*ptr1).status << nl;
     }
 
     cout << nl;
