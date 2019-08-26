@@ -14,7 +14,7 @@ echo `find . -type f -iname "*.mov" | sed "s/^..//g"`
 echo `find . -type f -iname "*.avi" | sed "s/^..//g"`
 #echo `find . -type f -iname "*.txt" | sed "s/^..//g"`
 #echo `find . -type f -iname "*.jpeg" | sed "s/^..//g"`
-#echo `find . -type f -iname "[0-9]*" | sed "s/^..//g"`
+#echo `find . -type f -iname "^[0-9]*" | sed "s/^..//g"`
 
 # I print another files
 extensions="*.png|*.jpg|*.mp3|*.flac|*.mov|*.avi"
