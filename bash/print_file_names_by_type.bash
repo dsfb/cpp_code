@@ -1,4 +1,5 @@
 #!/bin/bash
+# write a bash script that orgarizes files in the folder
 
 # I had to remove all files with *.log extension
 rm -f *.log
