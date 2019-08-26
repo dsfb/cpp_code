@@ -1,4 +1,4 @@
-# cpp_tests
+# cpp_code
 There are in this C++ rerository:
 1) my demonstration projects in Qt 5.7
 2) my maked tests from job interview
