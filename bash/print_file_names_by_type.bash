@@ -17,7 +17,7 @@ echo `find -type f -iname "*.avi" | sed "s/^..//g"`
 #echo `find -type f -iname "[0-9]*" | sed "s/^..//g"`
 
 # I print another files
-extensions="*.png|*.jpg|*.mp3|*.flac|*.mov|*.avi|*.txt"
+extensions="*.png|*.jpg|*.mp3|*.flac|*.mov|*.avi"
 echo `find -type f -not -name "Sextensions"  | sed "s/^..//g"`
 
 
