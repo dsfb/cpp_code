@@ -12,3 +12,6 @@ echo `find -type f -iname "*.avi" | sed "s/^..//g"`
 echo `find -type f -iname "*.txt" | sed "s/^..//g"`
 echo `find -type f -iname "*.jpeg" | sed "s/^..//g"`
 echo `find -type f -iname "[0-9]*" | sed "s/^..//g"`
+
+# Aleksander Czastuchin
+# 2019
