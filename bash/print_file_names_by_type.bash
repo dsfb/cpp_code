@@ -23,4 +23,4 @@ echo `find . -type f -not -name "Sextensions"  | sed "s/^..//g"`
 
 
 # Aleksander Czastuchin
-# 2019
+# 2019, sierpień
