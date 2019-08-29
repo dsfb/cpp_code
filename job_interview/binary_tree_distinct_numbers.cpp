@@ -1,12 +1,4 @@
 #include <iostream>
-#include <type_traits>
-#include <algorithm>
-#include <bitset>
-#include <stdarg.h>
-#include <functional>
-#include <set>
-#include <iterator>
-#include <vector>
 using namespace std;
 
 struct node
