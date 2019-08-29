@@ -33,5 +33,5 @@ notify-send "$2" "$(xclip -out -selection clipboard)"
 #touch en
 #vim en # wpisać skrypt
 #chmod +x ./en
-#vim ~/.bashrc # dodać alias pl="/home/ochastukhin/./en pl-en"
+#vim ~/.bashrc # dodać alias pl="~/./en pl-en"
 #source ~/.bashrc
