@@ -8,6 +8,10 @@ HEAD~0 = HEAD
 
 # all git configurations
 git config --global --list (-l)
+git config --global diff.tool meld
+git config --global merge.tool meld
+git config --global --add difftool.prompt false
+meld . # run meld and start the megring process
 
 # set new ssh key
 ssh-keygen -t rsa -b 4096 -C "email or your name"

@@ -10,6 +10,7 @@ inst vim
 inst apt-file
 inst git-all
 inst cmake
+inst meld
 
 inst libssl1.0-dev
 inst libqt5xml5
