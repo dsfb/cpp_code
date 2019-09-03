@@ -11,6 +11,7 @@ inst apt-file
 inst git-all
 inst cmake
 
+inst libqt5xml5
 inst libboost1.65-all-dev
 inst libgstreamer1.0
 inst libgstreamer1.0-dev
