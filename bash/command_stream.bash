@@ -19,5 +19,5 @@ find . -type d # find all folders here
 find . -type -f -not -name "*.cpp" # all files but *.cpp
 
 export LD_LIBRARY_PATH=one:two:three:four # several pathes for libraries
-ldd <*.so or executable> | grep not # do you need something?
+ldd <*.so or executable> | grep not # do you need something? (undefined symbol detection)
 nm --undefined-only <*.so or *.o> # external symbols
