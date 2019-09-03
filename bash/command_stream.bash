@@ -13,3 +13,5 @@ git config --global --list (-l)
 ssh-keygen -t rsa -b 4096 -C "email or your name"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
+
+find . -type l # find links here
