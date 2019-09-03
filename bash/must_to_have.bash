@@ -11,6 +11,7 @@ inst apt-file
 inst git-all
 inst cmake
 
+inst libssl1.0-dev
 inst libqt5xml5
 inst libboost1.65-all-dev
 inst libgstreamer1.0
@@ -30,7 +31,7 @@ inst libqhttpengine-dev
 inst libopencv-imgproc-dev
 inst libopencryptoki-dev
 inst  pkgconf libssl-dev
-
+inst alsa-source
 
 
 #####################################################
@@ -57,4 +58,5 @@ export Qt5Network_DIR=~/Qt5.7.1/5.7/gcc_64/lib/cmake/Qt5Network
 cmake .
 make
 make install
+LIBS += -lqhttpengine # wskazuwka dla linkera, żeby szukał tej biblioteki
 

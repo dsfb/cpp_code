@@ -18,4 +18,5 @@ find . -type l # find links here
 find . -type d # find all folders here
 find . type -f -not -name "*.cpp" # all files but *.cpp
 
-ldd lib.so | grep not # do you need something?
+ldd <*.so> | grep not # do you need something?
+nm --undefined-only <*.so or *.o> # external symbols
