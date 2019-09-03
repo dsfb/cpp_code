@@ -15,3 +15,4 @@ eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 
 find . -type l # find links here
+find . type -f -not -name "*.cpp" # all files but *.cpp
