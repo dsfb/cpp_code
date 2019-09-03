@@ -1,3 +1,11 @@
+HEAD - ostatni commit
+HEAD^ - przedostatni 
+HEAD^^ - jeszcze głębiej
+HEAD^^..HEAD - zakres 
+HEAD~2 = HEAD^^
+HEAD~1 = HEAD^
+HEAD~0 = HEAD
+
 # all git configurations
 git config --global --list (-l)
 
