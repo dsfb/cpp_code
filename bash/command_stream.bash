@@ -6,12 +6,14 @@ HEAD~2 = HEAD^^
 HEAD~1 = HEAD^
 HEAD~0 = HEAD
 
-# all git configurations
-git config --global --list (-l)
+
+# run meld and start the megring process
 git config --global diff.tool meld
 git config --global merge.tool meld
-git config --global --add difftool.prompt false
-meld . # run meld and start the megring process
+git config --global --add difftool.prompt false # wtf?
+meld . 
+
+git config --global --list (-l)     # all git configurations
 git checkout <commit hash> <file name> # cofąć plik do stanu jakiegoś comita
 
 # set new ssh key
