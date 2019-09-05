@@ -25,3 +25,12 @@ find . -type -f -not -name "*.cpp" # all files but *.cpp
 export LD_LIBRARY_PATH=one:two:three:four # several pathes for libraries
 ldd <*.so or executable> | grep not # do you need something? (undefined symbol detection)
 nm --undefined-only <*.so or *.o> # external symbols
+# which library's functions does your application call?
+ltrace <program name>
+ltrace --library <name> <program name> 
+
+journalctl --user-unit name.service -n 1000  | grep "Main process exited" -B 4
+pkg -l | grep -E "one|two|three"
+
+cd /etc/apt/sources.list.d
+deb [trusted=yes] http://xxx.xxx.xxx.xxx:xxxx/ dir1 dir2/dir3
