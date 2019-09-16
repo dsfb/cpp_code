@@ -23,9 +23,9 @@ cat enfile
 translate=$(cat enfile | head -1 | grep -E -o "^.*$" | sed "s/^.*[0-9].//g")
 rm --force enfile
 
-echo "$translate - $2 $wymowa" | xclip -selection c
+echo "$2 $wymowa - $translate" | xclip -selection c
 #echo $(xclip -out -selection clipboard)
-notify-send "$2" "$(xclip -out -selection clipboard)"
+#notify-send "$2" "$(xclip -out -selection clipboard)"
 
 
 #how zainstalować?
