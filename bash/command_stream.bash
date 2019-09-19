@@ -157,6 +157,11 @@ sudo netstat -tulpn | grep 80
 -u # udp
 -l # listening
 
+# add library's path
+cd /etc/ld.so.conf.d
+touch lib.conf
+echo "the path to your library" > lib.conf
+sudo ldconf
 
 # damp
 sudo fdisk /dev/sdb # run disk manager
