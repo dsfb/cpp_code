@@ -161,9 +161,13 @@ sudo netstat -tulpn | grep 80
 cd /etc/ld.so.conf.d
 touch lib.conf
 echo "the path to your library" > lib.conf
-sudo ldconf
+sudo ldconfig
 
 # damp
 sudo fdisk /dev/sdb # run disk manager
 mkfs .ext4 /dev/sda2 # format disk
 /etc/ld.so.conf.d # additional *.conf files to find libraries
+dpkg --status <package name> # status + information about some package
+dpkg --list # all installed packages
+dpkg --listfile <package name> # package's files
+dpkg --search <file name> # in which package does the file exist
