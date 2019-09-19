@@ -169,5 +169,11 @@ mkfs .ext4 /dev/sda2 # format disk
 /etc/ld.so.conf.d # additional *.conf files to find libraries
 dpkg --status <package name> # status + information about some package
 dpkg --list # all installed packages
-dpkg --listfile <package name> # package's files
+dpkg --listfile <package name> # .deb's files
 dpkg --search <file name> # in which package does the file exist
+dpkg -I # information about package
+dpkg-reconfigure tzdata
+apt-get install <package name> # install
+apt-cache search <package name> # find package
+apt-cache show # remote package info
+apt-file show # shows you package's files
