@@ -12,6 +12,10 @@ inst apt-file
 inst git-all
 inst cmake
 inst meld
+inst net-tools # ifconfig
+inst tree
+inst mc # file manager
+inst xclip
 
 inst libssl1.0-dev
 inst libqt5xml5
@@ -23,7 +27,7 @@ inst libssl-dev
 inst libgstreamer1.0-dev
 inst libgstreamer1.0-0
 inst libltdl7
-inst libltd7:i1386
+inst libltd7:i386
 inst libltdl7:i386
 inst libmpg123-0:i386
 inst libout123-0:i386
