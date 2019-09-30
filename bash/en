@@ -16,12 +16,12 @@ wymowa=$(curl --http1.1 --silent https://wooordhunt.ru/word/$2 | egrep -o 'trans
 echo $wymowa
 fi
 
-touch enfile
-curl --http1.1 --silent --data "query=$2&direction=$direction&limit=$limit" http://getionary.pl/action/search.act.php | egrep -o '<translation>[^<>]*</translation>' | sed 's;<translation>\([^<>]*\)</translation>;\1;g' | head -5 | nl > enfile
-cat enfile
+touch ~/enfile
+curl --http1.1 --silent --data "query=$2&direction=$direction&limit=$limit" http://getionary.pl/action/search.act.php | egrep -o '<translation>[^<>]*</translation>' | sed 's;<translation>\([^<>]*\)</translation>;\1;g' | head -5 | nl > ~/enfile
+cat ~/enfile
 
-translate=$(cat enfile | head -1 | grep -E -o "^.*$" | sed "s/^.*[0-9].//g")
-rm --force enfile
+translate=$(cat ~/enfile | head -1 | grep -E -o "^.*$" | sed "s/^.*[0-9].//g")
+rm --force ~/enfile
 
 echo "$2 $wymowa - $translate" | xclip -selection c
 #echo $(xclip -out -selection clipboard)
