@@ -1,4 +1,4 @@
-sd = solid disk
+sd[a-z] = solid disk + symbol
 
 HEAD - ostatni commit
 HEAD^ - przedostatni 
@@ -111,17 +111,20 @@ pstree
 
 jobs # processes areated in terminal
 jobs -l # more information about jobs
-bg %<job number> # move to the background 
-fg %<job number> # bring the process to the foregraund 
+bg %<job number> # move to the background and run
+fg %<job number> # bring the process to the foregraund and run
 ctrl+z  # suspend and move to the foreground
 ctrl+c # terminate process
+kill <sygnal> <job number or process id>
 kill -STOP %<job number> # freeze process
 kill -CONT %<job number> # contunue running (after ctrl+z)
 kill -SIGTERM %<job number> # please, terminate this process
+lsof # what files the system works now
 
 inst apache2
 http://127.0.0.1/ # apache main page address
 /var/www/html/index.html # the main page is located here
+curl localhost # port 80, test local site
 
 # SSH
 ssh -p <port> # set port number
@@ -163,7 +166,30 @@ touch lib.conf
 echo "the path to your library" > lib.conf
 sudo ldconfig
 
-# damp
+# TEXT EDITING
+wc # word, line, char count
+tr # remove or translate symbol
+tr --truncate-set1 A-z a-z
+tr -d 'l' # remove 'l' everywhere
+tr -r 'a' # aaa -> a
+split # split a file into pieces
+uniq # remove the same lines ONLY IF lines are next to each other
+head/tail # prints 10 line by default
+tail --follow # update file's data
+sort <file> 
+paste # combite lines as one line
+nl # number lines
+join # combine files with help of the sane field
+od # format text as hex,oct,dec etc
+fmt # format some test
+fmt -w 100 <file> # format text by wide
+expand # convert tab symbols to spaces
+unexpand
+
+# dump and unsorted
+echo $? # exit code of last command
+whatis vim # what is that?
+cat > <file name> # write some test to file
 sudo fdisk /dev/sdb # run disk manager
 mkfs .ext4 /dev/sda2 # format disk
 /etc/ld.so.conf.d # additional *.conf files to find libraries
@@ -174,6 +200,61 @@ dpkg --search <file name> # in which package does the file exist
 dpkg -I # information about package
 dpkg-reconfigure tzdata
 apt-get install <package name> # install
+apt-get remove <package name> # only this package without dependencies
+apt-get autoremove <package name> # remove with dependencies
 apt-cache search <package name> # find package
-apt-cache show # remote package info
+apt-cache show <package name> # remote package info
+apt-cache depends <package name> # which packages does uor package depend?
+apt-cache rdepends <package> # kto zależy od naszego pakietu?
 apt-file show # shows you package's files
+aptitude  # to install packages (q for exit)
+
+# environment and local variables
+env # variables global
+alias addpath="PATH=$PATH:." # adds current path to PATH
+export name=value # creates global, environment variable
+unset <variable name> # remove ANY variable
+echo $USER
+echo $HOME
+echo $OLDPWD
+
+# WILDCARDS
+* # match any count of characters
+? # one character
+touch {1,2,3}.txt # array. creates three files
+^$ # start and end of line
+\'
+
+# regular expressions
+^$      # beginning and the end of line
+*       # 0 or more
++       # 1 or more
+?       # 0 or one (optional)
+.       # exactly one except new line
+{x}     # exactly x symbols
+{a,b}   # range: from a to b
+\.      # simple dot symbol
+\n      # new line
+\t      # tab
+\d      # digit
+\s      # space
+\w      # word character (like [a-zA-Z])
+[]      # some ranges or expected symbols
+[0-9]   # all digits like \d
+[a-z]   # range: from a to z like \w
+[abc]   # a,b or c
+[^abc]   # not abc
+()      # group
+|       # logical 'or'
+(|)     # group with "or"
+
+(^\w|\w$)   # matches the first or last line symbol
+[0-9]{2,}   # matches 2+ digits 
+^[0-9]{3}$  # matches exactly 3 digits
+[a-z0-9_]   # a-z, 0-9 and underscore
+
+# repeate patterns
+.{1}    # exactly one times
+.*      # 0 or more times   
+.+      # 1 or more times
+.?      # 0 or one
