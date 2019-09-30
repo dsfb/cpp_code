@@ -4,6 +4,7 @@ alias inst='sudo apt-get install'
 
 inst gcc-8 gcc-8-multilib 
 inst g++-8 g++-8-multilib
+inst openjdk-8-jdk # java 8
 
 inst redshift-gtk  # https://github.com/jonls/redshift
 inst flashplugin-installer
