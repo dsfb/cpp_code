@@ -25,6 +25,7 @@ string to_binary(short decimal)
     string result;
     while(decimal > 0) {
         short if_modulo = (decimal % 2) > 0 ? 1 : 0;
+        // bit order: from left to right
         result = to_string(if_modulo) + result; // [new bit][old bit]
         decimal = decimal / 2;
     }
