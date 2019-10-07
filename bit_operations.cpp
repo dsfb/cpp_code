@@ -19,7 +19,7 @@ using namespace std;
 #define bits(x) std::bitset<sizeof(x) * 8>(x)
 #define uint32 unsigned
 
-// it change decimal to binary
+// it changes decimal to binary
 string to_binary(short decimal)
 {
     string result;
@@ -45,7 +45,7 @@ uint32 set_ip_address(uint32 one, uint32 two, uint32 three, uint32 four)
     ip = ip | (three << 8 * 1);
     ip = ip | four;
 
-    cout << bits(ip) << endl;
+    cout << bits(ip) << nl;
     return ip;
 }
 
