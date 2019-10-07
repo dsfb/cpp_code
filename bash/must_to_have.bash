@@ -18,6 +18,7 @@ inst net-tools # ifconfig
 inst tree
 inst mc # file manager
 inst xclip
+inst nmap
 
 inst libssl1.0-dev
 inst libqt5xml5
