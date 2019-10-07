@@ -308,3 +308,7 @@ du -h --total --max-depth=0 ~ # size of the home directory
 >> # append to the existed content
 head -n 20 # shows 20 first lines of some file
 find /usr/bin -type l | grep  \/vi$ # vi is a link to vim
+xxx.xxx.xxx.xxx/24 # 24 bits for mask
+sudo ifconfig <interface name> <address>/24 # set ip and netmask
+!* # arguments of a previous command
+wc -l # shows you how much lines it has
