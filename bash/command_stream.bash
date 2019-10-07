@@ -92,7 +92,8 @@ free -m # check your memory in megabytes
 df -h # check your disks' free memory
 df -h | grep 'sd[a-z]' # sd = solid disk? hard drive's free space
 sudo fdisk -l | grep "sd[a-z]" # solid disks' free spaces
-du . -h # check file sizes in current directory
+du ~ --max-depth=1 -h # check folder' sizes in current directory
+du <file name> -h # check file size
 htop # process information
 
 id # my user and groups
@@ -258,3 +259,52 @@ touch {1,2,3}.txt # array. creates three files
 .*      # 0 or more times   
 .+      # 1 or more times
 .?      # 0 or one
+
+ps -a # select all processes
+ps -p <process id>
+ps -u `whoami` # there are my processes
+pmap <process id> # shows you memory usage of some process
+
+nslookup <site name> # get name server of some web site
+nmap -F localhost # fast scan your opened ports
+nmap -p <port> # scans specific port
+nmap -p 80,20-30
+nmap -A <address>
+nmap -sT # scan tcp
+nmap -p T:80 # is it tcp?
+
+netstat -r  # shows local route
+netstat -i # interfaces
+netstat -ie # interfaces with extend information
+netstat --interfaces
+netstat --interfaces --extend
+netstat -c # stream
+netstat -a | less # all connections
+netstat -a -t  # all tcp
+netstat -a -t -l # all tcp with status LISTEN
+netstat  -t -l -p # with program id or name
+netstat -t -n # tcp with numeric ports
+history | tail -n 40 | sed "s/^......//g"
+
+netcat <address> <port> # test connection
+netcat -zv 127.0.0.1 1-80 # scan this port range fron 1 to 80
+netcat -l -p <port number> # now netcat is listening port
+netcat -lvp <port> > <file name> # wrote data to a file
+netcat -lvp <port> -e <shell or script file> # share port for remote control
+netcat -lvp <port> -e cmd.exe # windows remote control
+netcat -lvp <port> -e /bin/bash
+-z # scan ports without sending any information
+-v # show me more information
+-e # execute somethig  
+
+
+echo "tell your name"
+read your_name # read local variable from std input
+echo "your name is " $your_name
+read me < <file name> # read the first file of file to local variable
+ls > <file name> # redirrection: write to file
+du -h --total --max-depth=0 ~ # size of the home directory
+> # replace content
+>> # append to the existed content
+head -n 20 # shows 20 first lines of some file
+find /usr/bin -type l | grep  \/vi$ # vi is a link to vim
