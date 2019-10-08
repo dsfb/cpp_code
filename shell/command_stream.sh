@@ -73,7 +73,7 @@ ls -X # sort by file's extention
 ls | rev | sort | rev # print files by type
 ls -1 # print files one line
 ls -t -1 -l -r # last modifield files on bottom
--r reverse
+-r reverse a result
 -l long list + links
 -1 one file at line
 -t sort by time
@@ -211,9 +211,11 @@ apt-file show # shows you package's files
 aptitude  # to install packages (q for exit)
 
 # environment and local variables
+set # shows you all variables and functions
 env # variables global
 alias addpath="PATH=$PATH:." # adds current path to PATH
 export name=value # creates global, environment variable
+export <variable name> # convert local to gloabal variable
 unset <variable name> # remove ANY variable
 echo $USER
 echo $HOME
@@ -312,3 +314,21 @@ xxx.xxx.xxx.xxx/24 # 24 bits for mask
 sudo ifconfig <interface name> <address>/24 # set ip and netmask
 !* # arguments of a previous command
 wc -l # shows you how much lines it has
+
+function name()
+{
+    echo $0 $1 $2 $? # arguments and the result of last closed program
+    whoami;
+    uptime -p;
+    pwd;
+    uname -a;
+    date;
+}
+
+chmod u+s <file name> # all can run file as owner
+test # test files and compare values
+test -e en && echo $? # file exist if ? = 0
+test 5 -gt 2; echo $? # 5 greater than 2?
+["text" = "test"] # compare text
+test 2 -gt 1 &&  echo "yes" || echo "no"
+&& <command> # run is previours was 0
