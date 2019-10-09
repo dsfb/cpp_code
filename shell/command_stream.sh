@@ -11,7 +11,7 @@ HEAD~0 = HEAD
 # run meld and start the megring process
 git config --global diff.tool meld
 git config --global merge.tool meld
-git config --global --add difftool.prompt false # wtf?
+git config --global --add difftool.prompt false # don't show prompt
 meld . 
 
 git config --global core.excludesfile ~/.gitignore # set global git-ignore file
@@ -317,7 +317,7 @@ wc -l # shows you how much lines it has
 
 function name()
 {
-    echo $0 $1 $2 $? # arguments and the result of last closed program
+    echo $0 $1 $2 $?; # arguments and the result of last closed program
     whoami;
     uptime -p;
     pwd;
@@ -329,6 +329,28 @@ chmod u+s <file name> # all can run file as owner
 test # test files and compare values
 test -e en && echo $? # file exist if ? = 0
 test 5 -gt 2; echo $? # 5 greater than 2?
-["text" = "test"] # compare text
+["text" = "text"] # compare text
 test 2 -gt 1 &&  echo "yes" || echo "no"
-&& <command> # run is previours was 0
+<command1> && <command2> # runs cmd2 if previours was 0
+
+# awk - match a pattern, split/separate a text by field and format output
+# awk arguments
+-F value # sets the field separator
+awk '{ print }' <file name> # print all file's lines
+# default awk separate by white spaces
+awk '{ print $1 }' <file name> # print first column
+awk '{ print $1,$2 }' <file name>
+awk '{ print $1.$2 }' <file name> # combine
+awk '{ /phrase/ print }' <file name> # find a phrase (case sensitive)
+awk '{ if($1 ~ /value/) print }' <file name> # if $1 equals to value
+# awk regular expressions and language
+[a-z] # lowercase symbol
+[0-9] # digit
+^$ # start and end of the line
+$NF # last column in a file
+${NF-1} # the last but one column
+~ # equals sign
+!~ # doesn't equals to
+
+fc # run previous command in an editor
+mkdir -p dir1/{dir2,dir3}/dir4
