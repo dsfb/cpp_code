@@ -48,7 +48,7 @@ optional<data> create(result_type state)
             return std::make_optional<data>();
 
         case result_type::has_value:
-            optional result = std::make_optional<data>();
+            optional result = std::make_optional<data>(/* arguments if are */);
             if (result.has_value()) {
                 cout << "has value" << nl;
 
