@@ -8,7 +8,7 @@ HEAD~2 = HEAD^^
 HEAD~1 = HEAD^
 HEAD~0 = HEAD
 
-# run meld and start the megring process
+# set meld and start the megring process
 git config --global diff.tool meld
 git config --global merge.tool meld
 git config --global --add difftool.prompt false # don't show prompt
@@ -31,7 +31,7 @@ find . -type d # find all folders here
 find . -type -f -not -name "*.cpp" # all files but *.cpp
 
 # LIBRARY
-export LD_LIBRARY_PATH=one:two:three:four # several pathes for libraries
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATHone:two:three # several pathes for libraries
 ldd <*.so or executable> | grep not # do you need something? (undefined symbol detection)
 nm --undefined-only <*.so or *.o> # external symbols
 # which library's functions does your application call?
@@ -62,11 +62,27 @@ cd /etc/apt/sources.list.d
 cat sources.list
 deb [trusted=yes] http://xxx.xxx.xxx.xxx:xxxx/ dir1 dir2/dir3
 
-apt-get install <program name>=<some version> # install some version
-apt-get --only-upgrade install <package name> # upgrade one package
+# packages
+apt-cache search <package name> # find package
+apt-cache show <package name> # remote package info
+apt-cache depends <package name> # which packages does uor package depend?
+apt-cache rdepends <package> # kto zależy od naszego pakietu?
 apt-cache policy <package name> # displays available versions of a package
 apt-cache madison <package name>  # displays available versions of a package
 apt-cache search <package name> # search
+dpkg --status <package name> # status + information about some package
+dpkg --list # all installed packages
+dpkg --listfile <package name> # .deb's files
+dpkg --search <file name> # in which installed package does the file exist
+dpkg -I <*.deb file> # information about *.deb package
+dpkg-reconfigure tzdata
+apt-get install <program name>=<some version> # install some version
+apt-get --only-upgrade install <package name> # upgrade one package
+apt-get install <package name> # install
+apt-get remove <package name> # only this package without dependencies
+apt-get autoremove <package name> # remove with dependencies
+apt-file show <package name> # shows you files that a package has
+aptitude  # to install packages (q for exit)
 
 ls  -l --no-group # shows links
 ls -X # sort by file's extention
@@ -194,21 +210,6 @@ cat > <file name> # write some test to file
 sudo fdisk /dev/sdb # run disk manager
 mkfs .ext4 /dev/sda2 # format disk
 /etc/ld.so.conf.d # additional *.conf files to find libraries
-dpkg --status <package name> # status + information about some package
-dpkg --list # all installed packages
-dpkg --listfile <package name> # .deb's files
-dpkg --search <file name> # in which package does the file exist
-dpkg -I # information about package
-dpkg-reconfigure tzdata
-apt-get install <package name> # install
-apt-get remove <package name> # only this package without dependencies
-apt-get autoremove <package name> # remove with dependencies
-apt-cache search <package name> # find package
-apt-cache show <package name> # remote package info
-apt-cache depends <package name> # which packages does uor package depend?
-apt-cache rdepends <package> # kto zależy od naszego pakietu?
-apt-file show # shows you package's files
-aptitude  # to install packages (q for exit)
 
 # environment and local variables
 set # shows you all variables and functions
