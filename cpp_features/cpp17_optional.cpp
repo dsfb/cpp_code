@@ -23,18 +23,18 @@ struct data {
     data(const data& source) = default;
     data(data&& source) = delete;
     data() = default;
-    short value;
+    short number;
 
     // int -> data
     data& operator=(int from) {
         cout << "equals to " << from << nl;
-        this->value = from;
+        this->number = from;
         return *this;
     }
 
     // data -> short. wow!
     operator short() const {
-        return value;
+        return number;
     }
 };
 
@@ -53,8 +53,8 @@ optional<data> create(result_type state)
                 cout << "has value" << nl;
 
                 result.value() = 100; // way one
-                result->value = 200; // way two
-                (*result).value = 300; // way tree
+                result->number = 200; // way two
+                (*result).number = 300; // way tree
 
                 return result;
             }
