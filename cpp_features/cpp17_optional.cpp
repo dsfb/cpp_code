@@ -4,7 +4,7 @@ std::optional is template class and can hold or not hold some value.
 
 running notes:
 export PATH=$PATH:. && echo $PATH
-g++ -std=c++17 cpp17_optional.cpp -o main && main
+g++ -std=c++17 cpp17_optional.cpp -o main &&  main && test $? -eq 0 && echo "success" || echo "some errors"
 
 Aleksander Czastuchin
 2019
@@ -67,7 +67,11 @@ optional<data> create(result_type state)
 int main()
 {
     auto result = create(result_type::has_value);
-    if (result.operator bool())
+    if (result.operator bool()) {
         cout << "final value equals to " << result.value() << nl;
+        return 0;
+    }
+    else return -1;
+
     return 0;
 }
