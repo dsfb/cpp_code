@@ -2,6 +2,8 @@
 there is my small example explanes how to use std::optional. 
 export PATH=$PATH:. && echo $PATH
 g++ -std=c++17 cpp17_optional.cpp -o main && main
+
+Aleksander Czastuchin
 */
 #include <optional>
 #include <iostream>
