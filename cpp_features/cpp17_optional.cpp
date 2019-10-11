@@ -19,36 +19,36 @@ using std::nullopt;
 
 enum class result_type { error, empty, has_value };
 
-struct data {
-    data(const data& source) = default;
-    data(data&& source) = delete;
-    data() = default;
+struct wrap {
+    wrap(const wrap& source) = default;
+    wrap(wrap&& source) = delete;
+    wrap() = default;
     short number;
 
-    // int -> data
-    data& operator=(int from) {
+    // int -> wrap
+    wrap& operator=(int&& from) & {
         cout << "equals to " << from << nl;
         this->number = from;
         return *this;
     }
 
-    // data -> short. wow!
+    // wrap -> short. wow!
     operator short() const {
         return number;
     }
 };
 
-optional<data> create(result_type state)
+optional<wrap> create(result_type state)
 {
     switch (state) {
         case result_type::error:
             return nullopt;
 
         case result_type::empty:
-            return std::make_optional<data>();
+            return std::make_optional<wrap>();
 
         case result_type::has_value:
-            optional result = std::make_optional<data>(/* arguments if are */);
+            optional result = std::make_optional<wrap>(/* arguments if are */);
             if (result.has_value()) {
                 cout << "has value" << nl;
 
