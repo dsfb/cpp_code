@@ -18,8 +18,41 @@ Aleksander Czastuchin
 #include <variant>
 #include <vector>
 #include <queue>
+#include <cstddef> // std::byte
+#include <bitset>
+#include <string>
 
 using namespace std;
+
+void std_byte_test()
+{
+    auto byte_to_binary = [](byte source) {
+        short decimal = static_cast<short>(source);
+        bitset<8> bits = bitset<8>(decimal);
+        return bits.to_string();
+    };
+
+    auto test_bit = [](byte source, short bit_number) {
+        if (bit_number <= 0 && bit_number >= 8)
+            return false;
+        const byte mask = static_cast<byte>(0b00000001);
+        return ((source >> bit_number) & mask) == byte{1};
+    };
+
+    const byte b = static_cast<byte>(0b11110111);
+    cout << to_integer<short>(b) << " is " << byte_to_binary(b) << endl;
+
+    // check the bits
+    cout << "the 8th bit is here: ";
+    if (test_bit(b, 7))
+        cout << "yes" << endl;
+    else cout << "no" << endl;
+
+    cout << "the 4th bit is here: ";
+    if (test_bit(b, 3))
+        cout << "yes" << endl;
+    else cout << "no" << endl;
+}
 
 void std_queue_test()
 {
@@ -278,6 +311,7 @@ int main(const int args_count, const char** args)
     // like std::pair<> but can holds more values
     //std_tuple_test();
 
-    std_queue_test();
+    //std_queue_test();
+    std_byte_test();
     return 0;
 }
