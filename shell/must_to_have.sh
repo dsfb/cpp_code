@@ -19,6 +19,7 @@ inst tree
 inst mc # file manager
 inst xclip
 inst nmap
+inst mailutils # to mail and reply
 
 inst libssl1.0-dev
 inst libqt5xml5

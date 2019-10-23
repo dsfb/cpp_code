@@ -1,5 +1,9 @@
 sd[a-z] = solid disk + symbol
 
+0	stdin	Standard input
+1	stdout	Standard output
+2	stderr	Standard error
+
 HEAD - ostatni commit
 HEAD^ - przedostatni 
 HEAD^^ - jeszcze głębiej
@@ -20,6 +24,8 @@ git config --global --list (-l)     # all git configurations
 git checkout <commit hash> <file name> # cofąć plik do stanu jakiegoś comita
 git add . && git commit -m "update" && git push
 git reset HEAD .  # unstage
+git checkout -- . # discard all non-staged changes
+git checkout -- <file> # discard changes for some file
 
 # set new ssh key
 ssh-keygen -t rsa -b 4096 -C "email or your name"
@@ -28,7 +34,8 @@ ssh-add ~/.ssh/id_rsa
 
 find . -type l # find links here
 find . -type d # find all folders here
-find . -type -f -not -name "*.cpp" # all files but *.cpp
+find . -type f -not -name "*.cpp" # all files but *.cpp
+find ~ -type f -name "*.h" 2>/dev/null # without errors 
 
 # LIBRARY
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATHone:two:three # several pathes for libraries
@@ -355,3 +362,4 @@ ${NF-1} # the last but one column
 
 fc # run previous command in an editor
 mkdir -p dir1/{dir2,dir3}/dir4
+echo $PS1 # shows the prompt's pattern
