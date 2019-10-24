@@ -37,13 +37,14 @@ find . -type d # find all folders here
 find . -type f -not -name "*.cpp" # all files but *.cpp
 find ~ -type f -name "*.h" 2>/dev/null # without errors 
 
-# LIBRARY
+# LIBRARY AND PROCESS INFORMATION
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATHone:two:three # several pathes for libraries
 ldd <*.so or executable> | grep not # do you need something? (undefined symbol detection)
 nm --undefined-only <*.so or *.o> # external symbols
 # which library's functions does your application call?
 ltrace <program name>
 ltrace --library <name> <program name> 
+pmap <process id> # shows you memory usage of some process
 
 # DEAMON
 service --status-all # status of services
@@ -92,7 +93,7 @@ apt-file show <package name> # shows you files that a package has
 aptitude  # to install packages (q for exit)
 
 ls  -l --no-group # shows links
-ls -X # sort by file's extention
+ls -X # sort by files' extention
 ls | rev | sort | rev # print files by type
 ls -1 # print files one line
 ls -t -1 -l -r # last modifield files on bottom
@@ -133,7 +134,7 @@ ps # terminal proceses
 ps --user=`whoami` # user processes
 pstree
 
-jobs # processes areated in terminal
+jobs # processes was created in terminal
 jobs -l # more information about jobs
 bg %<job number> # move to the background and run
 fg %<job number> # bring the process to the foregraund and run
@@ -210,14 +211,6 @@ fmt -w 100 <file> # format text by wide
 expand # convert tab symbols to spaces
 unexpand
 
-# dump and unsorted
-echo $? # exit code of last command
-whatis vim # what is that?
-cat > <file name> # write some test to file
-sudo fdisk /dev/sdb # run disk manager
-mkfs .ext4 /dev/sda2 # format disk
-/etc/ld.so.conf.d # additional *.conf files to find libraries
-
 # environment and local variables
 set # shows you all variables and functions
 env # variables global
@@ -273,7 +266,6 @@ touch {1,2,3}.txt # array. creates three files
 ps -a # select all processes
 ps -p <process id>
 ps -u `whoami` # there are my processes
-pmap <process id> # shows you memory usage of some process
 
 nslookup <site name> # get name server of some web site
 nmap -F localhost # fast scan your opened ports
@@ -362,4 +354,13 @@ ${NF-1} # the last but one column
 
 fc # run previous command in an editor
 mkdir -p dir1/{dir2,dir3}/dir4
+
+# dump and unsorted
 echo $PS1 # shows the prompt's pattern
+echo $? # exit code of last command
+echo $# # number of argumetns
+whatis vim # what is that?
+cat > <file name> # write some test to file
+sudo fdisk /dev/sdb # run disk manager
+mkfs .ext4 /dev/sda2 # format disk
+/etc/ld.so.conf.d # additional *.conf files to find libraries
