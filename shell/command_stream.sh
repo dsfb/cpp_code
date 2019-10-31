@@ -1,8 +1,9 @@
 sd[a-z] = solid disk + symbol
+/proc # there are indentifiers of runned proceses
 
-0	stdin	Standard input
-1	stdout	Standard output
-2	stderr	Standard error
+0	#stdin	Standard input
+1	#stdout	Standard output
+2	#stderr	Standard error
 
 HEAD - ostatni commit
 HEAD^ - przedostatni 
@@ -26,6 +27,11 @@ git add . && git commit -m "update" && git push
 git reset HEAD .  # unstage
 git checkout -- . # discard all non-staged changes
 git checkout -- <file> # discard changes for some file
+git log --stat # show changed files in the commit
+git add <file> && git -- amend # add file to last commit
+git reflog # history of operations
+git reset <file name> # remove file from repository
+git clone <address> <place>
 
 # set new ssh key
 ssh-keygen -t rsa -b 4096 -C "email or your name"
@@ -359,8 +365,13 @@ mkdir -p dir1/{dir2,dir3}/dir4
 echo $PS1 # shows the prompt's pattern
 echo $? # exit code of last command
 echo $# # number of argumetns
+echo $! # pid of last runned program in foreground 
 whatis vim # what is that?
 cat > <file name> # write some test to file
 sudo fdisk /dev/sdb # run disk manager
 mkfs .ext4 /dev/sda2 # format disk
 /etc/ld.so.conf.d # additional *.conf files to find libraries
+
+echo hi | hexdump # text to hexademical
+echo hi | md5sum # get md5 hash
+md5sum <file name> # check md5 message 
