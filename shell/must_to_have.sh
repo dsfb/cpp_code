@@ -20,7 +20,9 @@ inst mc # file manager
 inst xclip
 inst nmap
 inst mailutils # to mail and reply
+inst docker.io
 
+# optional below
 inst libssl1.0-dev
 inst libqt5xml5
 inst libboost1.65-all-dev
