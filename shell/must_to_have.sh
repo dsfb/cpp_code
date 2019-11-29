@@ -6,6 +6,7 @@ inst gcc-8 gcc-8-multilib
 inst g++-8 g++-8-multilib
 inst openjdk-8-jdk # java 8
 
+inst sshfs
 inst redshift-gtk  # https://github.com/jonls/redshift
 inst flashplugin-installer
 inst pkg-config

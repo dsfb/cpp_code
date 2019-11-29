@@ -19,6 +19,8 @@ git config --global merge.tool meld
 git config --global --add difftool.prompt false # don't show prompt
 meld . 
 
+git config --global http.proxy http://xxx.xxx.xxx.xxx:port # how to set http proxy
+git config --global user.name "name surname" # to set user's name
 git config --global core.excludesfile ~/.gitignore # set global git-ignore file
 git config --global core.editor "vim"  # set vim as main text editor
 git config --global --list (-l)     # all git configurations
@@ -31,7 +33,7 @@ git log --stat # show changed files in the commit
 git add <file> && git -- amend # add file to last commit
 git reflog # history of operations
 git reset <file name> # remove file from repository
-git clone <address> <place>
+git clone <address> <place> # clone into the custom place
 
 # set new ssh key
 ssh-keygen -t rsa -b 4096 -C "email or your name"
@@ -375,3 +377,15 @@ mkfs .ext4 /dev/sda2 # format disk
 echo hi | hexdump # text to hexademical
 echo hi | md5sum # get md5 hash
 md5sum <file name> # check md5 message 
+
+
+sudo sshfs -o allow_other <remove server> <local directory>
+rpm --query --all # shows all installed packages
+yum install <name> # install a package
+cd /etc/sysconfig/network-scripts/ # interfaces' con files
+su # set user to root
+ip link ls up # list all active interfaces
+ip link set <interface> up/down # switch on of swiches off some interface 
+tree -L 2 # until level 2
+less /etc/group | grep docker # it'll show you all groups
+wget -nH --cut-dirs=3 --recursive --no-parent -R "index.html*" https://host-name/dir1/dir2/ # download all folder
