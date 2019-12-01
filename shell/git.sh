@@ -1,0 +1,269 @@
+working tree - dodane pliki do repository
+index = stage - zmiany w plikach dodane na stage
+
+JAK ZAINSTALOWAĆ GIT
+sudo apt-get install git-all - instalacja git'a (on ubuntu)
+# sprawdzamy czy został zainstalowany i gdzie
+whereis git
+git --version
+
+USTAWIENIA PODSTAWOWE
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git config --global core.editor "vim"
+git config --global --list - pokazać bierzącą globalną konfigurację
+
+USTAWIENIA .gitignore GLOBALNE
+cd ~
+touch .gitignore
+git config --global core.excludesfile '~/.gitignore'
+vim .gitignore
+
+INSTALACJA I USUNIĘCIE
+git init - utworzyć repozytorium w obecnym folderze
+rm -rf .git - usunąć git repozytorion
+rm -rf .git* - usunąć repo razam z .gitignore itd
+git clone LOCAL_OR_SERVER_PATH - pobrać zdalne bądź klonować lokalne repo
+git remote add origin <server> - podać adres zdalnego repo, skąd zaciągne będą zmiany
+
+REPOSITORY INFORMATION - INFORMACJE O GAŁĘZIACH, ZMIANACH I REPOZYTORIUM
+git cat-file -p <commit hash> - shows information about a some commit
+git reflog - will display any change which updated the HEAD
+git log remote/branch - pokazać log innego remote branch po wypodaniu git fetch
+git log --follow -p -- FILE_NAME  - historia zmian dla pliku
+git log - pokazać wszystkie zapisane zmiany (kommity) (q - exit)
+git log --pretty=oneline - pokazać nieco zwarty log (q - for exit)
+git log --oneline - skrócony log
+git log --name-status - pokazać pliki w których zaszły zmiany
+git log --graph
+gitk --follow [filename] - historia zmian dla pliku (past file's renames)
+git ls-files - list of all files in repository
+git branch --list - list of locat branches
+git branch --all - list both remote-tracking branches and local branches
+git branch -vv - dokładna i pomocna informacja o lokalnych gałęziach
+git branch --merged - pokazać listę gałęzi, które zostały połączone z bierzącą
+git status - bierzący status perozytorium
+git diff - pokazać zmiany, które ja już wprowadziłem (without new files)
+git show <commit hash> - pokazać zmiany wprowadzone w jakimś commicie
+git log --diff-filter=A -- FILE_NAME - find commit where file was added
+--diff-filter=[(A|C|D|M|R|T|U|X|B)...[*]] - Select only files that are 
+Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R)
+
+ZDALNE REPOZYTORIUM
+git remote - your list remote repositories 
+git remore -v - show addresses where a current branch will be push local changes
+git remote add <remote name> <address> - add new remote server for all repository
+git remote remove <remote name>
+git remote rename <old> <new> - zmienić nazwę zdalnego repo
+git remote get-url <remote name> - show url of remote repository
+git branch --remote - pokazać gałędzie na zdalnym repozytorium
+git fetch REMOTE_NAME - pobrać do siebie wszystkie gałęzie określonego zdalnego
+git push -u - set upstream
+
+CREATE BRANCH - NOWA GAŁĄŹ
+git branch BRANCH_NAME - nowa gałąź na podstawie bieżącej
+git branch <branch name> <start-point> - nowa gałąż z głową w jakości wcześniejszego commita
+git branch <branch name> --track <remote>/<branch> - tworzy nową gałąź oraz związek pomiędzy lokalną a zdalną gałęzią 
+git checkout -b <new branch> <commit hash as start point> - nowa gałąż z głową w jakości wcześniejszego commita
+git checkout -b <branch> --track <remote>/<branch> - nowa gałąź na podstawie zdalnej
+git checkout BRANCH_OF_VERSION_NAME - przełączyć się na gałąź bądź wersję
+git checkout -b BRANCH_NAME [REMOTE_REPO_NAME/BRANCH_NAME or LOCAL_BRANCH] - stworzyć nową gałąź (na podstawie już stniejącej) i na nią się przełączyć
+
+REMOVE BRANCH
+git branch --delete <branch name> - removes a branch that was merged before
+git branch --force --delete <branch name> - removes a branch that was not merged before
+git branch -u <branch name> - ustalić gałąź na którą mają być wysyłane zmiany
+git branch -d BRANCH_NAME - usunąż gałąź (zostanie usunięta, jeśli była merge'owana)
+git branch -D BRANCH_NAME - usunąć gałąź o podanej nazwie (nawet jeśli nie była merge'owana)
+git push <remote name> --delete <remote branch name> - usunąć zdalną gałąź
+
+COFNĄĆ ZMIANY
+git checkout . - to get all your files back
+git checkout FILE_NAME - discard changes in working directory
+git checkout -- FILE_NAME - discard changes, but saves changes on stage
+git rm --force FILE_NAME  - usinąć plik fizycznie + z pero
+git reset --soft HEAD~1 - cofnąć się o jeden commit
+git reset --hard origin/master - cofnąć się do stanu na zdalnym
+
+SWITCH BRANCH
+git checkout <branch name> - a simple way to select a some branch
+git checkout --force <branch name> - switch to another branch even head and stage differs. changes will be lost
+
+NEW FILES, ADDING TO REPOSITORY
+git add <path to file or some files> - dodać nowy plik bądź pliki do repozytorium
+git add --all - dodać wszystkie nowe pliki
+
+COMMIT
+git add FILE_NAME - to add one file to staging area (or repo)
+git add --all - to add all files to staging area
+git add -A - to add all files to staging area
+git reset file_name - usunąć plik ze staging area
+git difftool HEAD - show changes between current and previous state
+git commit -m "message" - to make commit (zatwierdzić zmiany w lokalnym repo)
+git commit --all --message="description" - stage all changed files and make a new commit
+
+REVERT COMMIT - ODWRÓCIĆ ZMIANY
+git revert <commit hash value> - zrobić commit odwrotny (revert the given commit or commit range)
+git revert --no-commit HEAD~0 - zrobić odwrotny commit do ostatniego
+git revert --abort - Cancel the operation and return to the pre-sequence state
+
+COFNĄĆ SIĘ DO JAKIEGOŚ STANU (REVOKE COMMITS, SET HEAD)
+git reset --soft <commit hast value> -  does not touch the index file or the working tree at all (leaves all your changes and changed files)
+git reset --mixed COMMIT_HASH_VALUE - usuwa pliki ze stage, ale nie dotyka working directory
+git reset --hard COMMIT_HASH_VALUE - 
+git reset --hard HEAD~3 - remove three last commits
+
+NEW BRANCH BY USING DETACHED HEAD
+git checkout <commit hash value>
+git checkout -b <new branch> <commit - start point>
+git checkout HEAD~X // x is the number of commits t go back
+git branch <branch name> <start-point> - nowa gałąż z głową w jakości wcześniejszego commita
+
+REMOVE FILES
+git rm - remove files from the working tree and from the index
+git rm -r - enables recursive mode for remove directories 
+git rm --cached -r . - remove all files from index (another words from a repository)
+git rm --force <file name> - remove a file from index and disk
+
+WYSŁAĆ ZMIANY
+git push --set-upstream REMOTE_NAME BRANCH_NAME - set remote branch to push changes
+git push - wysłać zmiany
+git push -f - wymusić push'nięcie
+git push -f REMOTE_NAME BRANCH_NAME - w tym przypadku, gdy up-stream jest inny
+git push origin LOCAL_BRANCH:NEW_SERVER_BRANCH - wysłać lokalną gałąź podając inne imię
+
+METKA I TAGOWANIE
+git tag - pokazać awailable tags (CTRL + Z -> to exit)
+git tag NAME - dodać nową metkę
+git checkout TAG_NAME - przełączyć się na tę wersję
+
+PRZENIEŚĆ COMMIT
+git cherry-pick master~0 - apply a top commit from master branch to current branch
+git cherry-pick <commit hash value> - przenieść commit z innego branch na bieżący, przypisując mu inny hash
+git cherry-pick --edit <commit hash value> -  will let you edit the commit message prior to committing
+git cherry-pick -x - append a line that says "cherry picked from commit ..."
+
+RENAME BRANCH
+git branch --move <oldname> <newname> - renames a branch while pointed to any branch (gdy znajdujesz się na nie na gałezi, nazwę  krórej chcesz zmienić)
+git branch --move <newname> - renames a current branch
+
+MERGE WITH BRANCH - SCALANIE
+git diff <source_branch> <target_branch>  - obejrzeć zmiany przez scaleniem
+git merge <branch> - aby scalić inną gałąź z gałęzią aktywną na korzyść aktywnej (--no-ff)
+
+git merge <branch> <remote name>/<remote branch> - merge <remore branch> into <branch>
+git merge -m <messtage> <branch> - set the commit message to be used for the merge commit (in case one is created)
+git merge --squash <branch> - przeniesie wszystkie zmiany z <branch> do bieżącej gałęzi i wystawi je na stage, nie robiąc commit'a
+git merge --no-commit <branch> - if you want to write your own merge commit message (similar to --squash)
+git merge --ff-only - this argument merge branches as a fast-forward (no merge commit)
+git merge --abort - aby cofnąć scalanie, jeśli są jakieś błędy
+git merge --continue - kontynuować scalanie po rozwiązaniu konfliktów
+git merge --strategy=<strategy> --strategy-option=<option> - format użycia strategii
+git merge --strategy=subtree - pozwala zaktualizować subproject
+git merge --strategy=resolve - klasyczna strategia do połączenia gałęzi
+git merge -s ours - ta strategia woli zmiany bieżącej gałęzi
+git merge --strategy=recursive --strategy-option=ours - (naszą) woleć wersję kodu z bierzącego repo podczas scalania z konfliktami
+git merge --strategy=recursive --strategy-option=theirs - (ich) woleć wersję kodu, którą proponuję inna gałąź podczas scalania z konfliktami
+git merge --strategy=recursive - podczas podwójnego scalania z tą samą załęzią pozwala uniknąć rozwiązania konfliktów, wynikających przez stary wspólny przodek
+git fetch --dry-run - pokazuje zniamy na zdalnych repo, ale nie zaciąga ich
+git fetch --all - zaciągnąć wszystkie zmiany ze wszystkich zdalnych
+git fetch <remote name> - fetch last changed from remote repository
+
+UPDATE LOCAL BRANCH BY REMOTE
+git pull - aklualizacja lokalnej gałęzi do statu na serve'rze (jeśli nie ma lokalnych zmian)
+git pull --ff-only - woleć fast-forward podczas zaciągania zmiam ze zdalnego repo
+git pull REMOTE_NAME BRANCH_NAME - zaktualizować jakąć okresloną gałąź
+git pull --rebase <remote name> <remote branch name> - zaciągnąć zmiany z remote i położyć lokalne kommity nad nimi
+git rebase BRANCH_NAME - zastosować zmiany w bierzącej gałęzi do innej (zmiany powieszch)
+git rebase --interactive master - to samo, lez z możliwością edytowania commitów
+> pick - dodać commit do master
+> squash - połączyć ów commit z poprzednim
+
+POŁĄCZENIE Z KONFLIKTAMI
+1) sudo apt-get isntall meld - gui editor dla git mergetool
+2) git config merge.conflictstyle diff3
+3) git config merge.tool meld - wybrać meld jako edytor do rozwiązania konfliktów
+4) zacząć scalanie -> meld .
+5) git merge --continue
+
+NIEZAPISANE I NOWE PLIKI W REPOZYTORIUM
+git clean -n - to show untracked files (pokazać niedodane do repo pliki)
+git clean -df - to hide untracked files -f and folders -df (usunąć niedodane pliki)
+
+GRAFICZNE PROGRAMY
+git gui & - zmiany w bierzącym pero i różnego rodzaju działania
+gitk - program graficzny pokazujący info o repozytorium
+gitg & - graficzny program ułatwiający działania nad repo
+
+SCHOWAĆ ZMIANY:
+git stash - schować zmiany i przełaczyć się na inną gałąź
+git stash pop - wrócić na gałaź i sięgnąć po zmiany
+git rm NAMES_OF_FILES - dodać bądź usunąć pliki / foldery
+git commit --amend - dodać zmiany do poprzedniego commit'u
+
+PODPROJEKT - SUBPROJECT
+git read-tree --prefix=<folder name>/ -u rack_branch
+git merge --squash -s subtree --no-commit rack_branch
+git diff-tree -p rack_branch
+git diff-tree -p rack_remote/master
+
+dodawać alias'y do git'a można przez console:
+git config --global alias.d 'diff' # git d = git diff
+
+PRACA NAD HISTORIĄ:
+git rebase -i nazwa_commitu - praca nad historią
+
+-- how to find a bug in some commit --
+git log --oneline - find a hash of last good commit
+git bisect start - start bisect
+git bisect good COMMIT_HAST - set last good commit
+// call it until git bitset return a bad commit
+git bisect bad - I say that current commit is bad
+git bisect goood - I sat that current commit is goood
+git status - to check where am i
+git bisect reset
+-- -- -- -- -- -- -- -- -- -- -- -- --
+
+
+# git
+alias gg="git gui &"
+alias back="git checkout ."
+alias backcommit="git reset --soft HEAD~1"
+alias unstage="git reset --mixed HEAD"
+alias gitc="git checkout"
+alias gitl="git log --oneline"
+alias revoke="backcommit"
+alias revert="git revert --no-commit HEAD~0"
+alias lastcom="git log --pretty=format:'%h' -n 1 | cat"
+alias remotelist="git remote -v"
+alias gitls="git ls-files"
+alias whenadded="git log --diff-filter=A -- "
+alias gitfind="git ls-files | ack -i "
+alias filehistory="git log --follow -p -- "
+
+
+**********************************************************************
+
+Stworzenie pustego projektu na serwerze:
+git clone git@git.nvr.sims.lan:users/sasza/forecastMPK.git
+ssh git@git.nvr.sims.lan - lista projektów na serwerze
+git clone git@git.nvr.sims.lan:isp/simscomponent
+git clone git@git.nvr.sims.lan:panel/libadvert
+git clone git@git.nvr.sims.lan:nvr/libnvr
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

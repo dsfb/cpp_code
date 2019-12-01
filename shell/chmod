@@ -1,0 +1,37 @@
+chmod = change file mode
+change user or group (r)read, (w)write or (x)execute permissions on files and folders
+
+ls -l shows you
+-uuugggooo ... <file name>
+duuugggooo ... <folder name>
+
+u = user
+g = groups
+o = other (everybody)
+
+give permissions
+sudo chmod u+r <file name>
+sudo chmod u+w <file name>
+sudo chmod u+x <file name>
+
+
+take away permissions
+sudo chmod u-x <file name>
+sudo chmod u-rwx <file name>
+
+
+apply to all files in folder
+sudo chmod --recursive
+
+you can change permissions numerically
+sudo chmod 700 <file name> - all permissions for user
+sudo chmod 644 <file name> - default file permissions
+sudo chmod 777 <file name> - all permissions for all
+
+numeric system is
+r = 4
+w = 2
+x = 1
+
+
+
