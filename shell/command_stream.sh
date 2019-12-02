@@ -5,35 +5,7 @@ sd[a-z] = solid disk + symbol
 1	#stdout	Standard output
 2	#stderr	Standard error
 
-HEAD - ostatni commit
-HEAD^ - przedostatni 
-HEAD^^ - jeszcze głębiej
-HEAD^^..HEAD - zakres 
-HEAD~2 = HEAD^^
-HEAD~1 = HEAD^
-HEAD~0 = HEAD
 
-# set meld and start the megring process
-git config --global diff.tool meld
-git config --global merge.tool meld
-git config --global --add difftool.prompt false # don't show prompt
-meld . 
-
-git config --global http.proxy http://xxx.xxx.xxx.xxx:port # how to set http proxy
-git config --global user.name "name surname" # to set user's name
-git config --global core.excludesfile ~/.gitignore # set global git-ignore file
-git config --global core.editor "vim"  # set vim as main text editor
-git config --global --list (-l)     # all git configurations
-git checkout <commit hash> <file name> # cofąć plik do stanu jakiegoś comita
-git add . && git commit -m "update" && git push
-git reset HEAD .  # unstage
-git checkout -- . # discard all non-staged changes
-git checkout -- <file> # discard changes for some file
-git log --stat # show changed files in the commit
-git add <file> && git -- amend # add file to last commit
-git reflog # history of operations
-git reset <file name> # remove file from repository
-git clone <address> <place> # clone into the custom place
 
 # set new ssh key
 ssh-keygen -t rsa -b 4096 -C "email or your name"
