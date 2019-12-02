@@ -224,7 +224,6 @@ git status - to check where am i
 git bisect reset
 -- -- -- -- -- -- -- -- -- -- -- -- --
 
-
 # git
 alias gg="git gui &"
 alias back="git checkout ."
@@ -240,16 +239,6 @@ alias gitls="git ls-files"
 alias whenadded="git log --diff-filter=A -- "
 alias gitfind="git ls-files | ack -i "
 alias filehistory="git log --follow -p -- "
-
-
-**********************************************************************
-
-Stworzenie pustego projektu na serwerze:
-git clone git@git.nvr.sims.lan:users/sasza/forecastMPK.git
-ssh git@git.nvr.sims.lan - lista projektów na serwerze
-git clone git@git.nvr.sims.lan:isp/simscomponent
-git clone git@git.nvr.sims.lan:panel/libadvert
-git clone git@git.nvr.sims.lan:nvr/libnvr
 
 
 
