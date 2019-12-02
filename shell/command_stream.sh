@@ -378,7 +378,7 @@ echo hi | hexdump # text to hexademical
 echo hi | md5sum # get md5 hash
 md5sum <file name> # check md5 message 
 
-
+diff <file one> <file two> # shows a difference between files
 sudo sshfs -o allow_other <remove server> <local directory>
 rpm --query --all # shows all installed packages
 yum install <name> # install a package
