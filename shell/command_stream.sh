@@ -5,7 +5,13 @@ sd[a-z] = solid disk + symbol
 1	#stdout	Standard output
 2	#stderr	Standard error
 
-
+# the information about system
+hostname # name of your host
+whoami # who am I?
+who --count # who is logged in
+uname -a # what is your operation system?
+groups # shows you which groups you are a member
+id # your id
 
 # set new ssh key
 ssh-keygen -t rsa -b 4096 -C "email or your name"
@@ -76,7 +82,7 @@ ls  -l --no-group # shows links
 ls -X # sort by files' extention
 ls | rev | sort | rev # print files by type
 ls -1 # print files one line
-ls -t -1 -l -r # last modifield files on bottom
+ls -t -1 -l -r # last modifield files are on bottom
 -r reverse a result
 -l long list + links
 -1 one file at line
@@ -105,8 +111,7 @@ sudo cat /etc/shadow | grep `whoami` # password hashes
 cat /etc/passwd | grep `whoami` # current user information
 passwd # how to change the password
 
-# shows you which groups you are a member
-groups
+
 cat /etc/group | grep `whoami`
 sudo adduser <user name>
 
@@ -131,23 +136,7 @@ http://127.0.0.1/ # apache main page address
 /var/www/html/index.html # the main page is located here
 curl localhost # port 80, test local site
 
-# SSH
-ssh -p <port> # set port number
-scp -P <port> # set port number
-scp -r -P <port>  <user name>@xxx.xxx.xxx.xxx:~/<folder name> . # copy directory (from -> to)
 
-# SSH ALIAS
-cd ~/.ssh && touch config && vim config
-Host <alias name>
-HostName <ip address>
-User <user name>
-Port <your port>
-# comment in ssh
-:wq
-
-# SSH TUNNEL: LOCAL -> SERVER1 -> SERVER 2
-ssh xtest@<server one> -p <port> -N -L 9000:<server two>:22
-ssh xtest@localhost -p 9000
 
 # SHOW REMOTE GUI
 ssh -X # x11 protocol to show remote giu on your desctop
