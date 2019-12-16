@@ -1,3 +1,26 @@
+echo $$ && ps $$ # process id of current runned terminal
+whoami
+hostname 
+exit
+which <program name> # detect a path to a program
+type <program name> # can be used to determine whether a token is recognized as a command
+hash # to see a list of your recently issued program commands
+cd - # to return to the previous directory you were located in
+echo b{ad,oy} #  brace expansion
+echo {a..z}
+echo one \  # the continued phrase in output
+help # to show builtin programs
+help echo
+basename `which ls` # extracts the program name from the path
+dirname $SHELL
+rm -ri # recursive interactive
+readlink <file>
+stat en.sh # file information
+cmp 
+comm
+diff
+find -L # include links
+
 sd[a-z] = solid disk + symbol
 /proc # there are indentifiers of runned proceses
 
@@ -160,7 +183,7 @@ touch lib.conf
 echo "the path to your library" > lib.conf
 sudo ldconfig
 
-# TEXT EDITING
+# TEXT PROCESSING
 wc # word, line, char count
 tr # remove or translate symbol
 tr --truncate-set1 A-z a-z
@@ -344,9 +367,14 @@ sudo sshfs -o allow_other <remove server> <local directory>
 rpm --query --all # shows all installed packages
 yum install <name> # install a package
 cd /etc/sysconfig/network-scripts/ # interfaces' con files
-su # set user to root
+sudo su - # set user to root
 ip link ls up # list all active interfaces
 ip link set <interface> up/down # switch on of swiches off some interface 
 tree -L 2 # until level 2
 less /etc/group | grep docker # it'll show you all groups
 wget -nH --cut-dirs=3 --recursive --no-parent -R "index.html*" https://host-name/dir1/dir2/ # download all folder
+
+
+git tag | tail -n 1 # gives us a last tag
+rm dirs; find `pwd` -type d -name include -exec   {} \;
+

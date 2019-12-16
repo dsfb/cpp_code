@@ -11,9 +11,10 @@ g 		- means that sed work with all matches
 p 		- print the current pattern space.
 w <file> 	- writes a result into a file
 
-\/ 		- is forward-slash
+\/  # it's forward-slash
+\"  # it's a double quote
 
--- exapmples --
+-- examples --
 sed "=" - prints number of lines
 sed -n "/<template>/=" - prints numbers of lines than fits <template>
 sed 's!/bin/bash!/bin/csh!' /etc/passwd - swój własny symbol rozdzielający !

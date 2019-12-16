@@ -6,15 +6,17 @@ inst gcc-8 gcc-8-multilib
 inst g++-8 g++-8-multilib
 inst openjdk-8-jdk # java 8
 
+# git and the tool for merging
+inst git-all
+inst meld
+
 inst sshfs
 inst redshift-gtk  # https://github.com/jonls/redshift
 inst flashplugin-installer
 inst pkg-config
 inst vim
 inst apt-file
-inst git-all
 inst cmake
-inst meld
 inst net-tools # ifconfig
 inst tree
 inst mc # file manager
@@ -22,6 +24,8 @@ inst xclip
 inst nmap
 inst mailutils # to mail and reply
 inst docker.io
+
+inst libgmock-dev # google mock
 
 # optional below
 inst libssl1.0-dev
@@ -38,12 +42,12 @@ inst libltd7:i386
 inst libltdl7:i386
 inst libmpg123-0:i386
 inst libout123-0:i386
-inst  libsystemd-dev
+inst libsystemd-dev
 inst protobuf-compiler
 inst libqhttpengine-dev
 inst libopencv-imgproc-dev
 inst libopencryptoki-dev
-inst  pkgconf libssl-dev
+inst pkgconf libssl-dev
 inst alsa-source
 
 
