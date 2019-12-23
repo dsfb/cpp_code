@@ -378,3 +378,5 @@ wget -nH --cut-dirs=3 --recursive --no-parent -R "index.html*" https://host-name
 git tag | tail -n 1 # gives us a last tag
 rm dirs; find `pwd` -type d -name include -exec   {} \;
 
+sudo kubectl -n <> get pods
+
