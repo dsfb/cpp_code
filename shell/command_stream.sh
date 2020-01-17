@@ -106,10 +106,13 @@ ls -X # sort by files' extention
 ls | rev | sort | rev # print files by type
 ls -1 # print files one line
 ls -t -1 -l -r # last modifield files are on bottom
--r reverse a result
--l long list + links
--1 one file at line
--t sort by time
+ls -l -s -S -r # largest files are on bottom
+-r # reverse a result
+-l # long list + links
+-1 # one file at line
+-t # sort by time
+-S # sort by size
+-s # print file size
 
 psql -d coś_tam -U postgres -w -c "COPY (__TU_WKLEIĆ_ZAPYTANIE__) TO STDOUT WITH CSV HEADER " > plik.csv
 cat  <file name>  | awk -F "-"  '{print $2 " - " $1}' # flip=revert columns

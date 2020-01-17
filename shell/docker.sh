@@ -2,23 +2,27 @@
 docker images 
 docker ps # shows you all containers that are currently running
 docker ps -a # a list of all containers that we ran
+docker container ls -a # all your containers
 
-# load from a registry
+# remove an image
+docker image rm <image name>
+
+# load an image from a registry
 docker pull <image>
 
-# load from *.tar archive
+# load an image from *.tar archive
 docker load --input <tar archive>
 docker load < <tar archive>
 
-# run new container
-docker run --name <new name for container> -it <image>
-docker run <image> # run some image
-docker run -it $1 sh # run with terminal
-docker run --rm <container> # run and delete
+# create new a container from an image
+docker run  -d --name <name>  -it <image id>  bash  # it gives an unique name for a container
+docker run <image> # run some container
+docker run -it <image> sh # run with terminal
+docker run --rm <image> # run and delete
 docker run -p <custom local port>:<container port> #specify a custom port to which the client will forward connections
 -d # you can happily close your terminal and keep the container running. This is called detached mode
 -P # will publish all exposed ports to random ports
---name # corresponds to a name we want to give
+--name <name> # corresponds to a name we want to give
 
 # run the exited container
 docker start <container> 

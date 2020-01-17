@@ -24,6 +24,7 @@ inst xclip
 inst nmap
 inst mailutils # to mail and reply
 inst docker.io
+inst wireshark # a tool that captures and analyzes packets 
 
 inst libgmock-dev # google mock
 
