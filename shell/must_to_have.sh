@@ -26,6 +26,7 @@ inst mailutils # to mail and reply
 inst docker.io
 inst wireshark # a tool that captures and analyzes packets 
 
+inst libbsd-dev # strcpy
 inst libgmock-dev # google mock
 
 # optional below

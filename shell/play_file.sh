@@ -71,14 +71,14 @@ do
     then
         play ~/en_audio/${audio_file[1]}.mp3 
     fi
-    if [ "${audio_file[1]}" != "${audio_file[2]}"  ]
-    then
-        play ~/en_audio/${audio_file[2]}.mp3 
-    fi
-    if [ "${audio_file[2]}" != "${audio_file[3]}"  ]
-    then
-        play ~/en_audio/${audio_file[3]}.mp3 
-    fi
+    #if [ "${audio_file[1]}" != "${audio_file[2]}"  ]
+    #then
+        #play ~/en_audio/${audio_file[2]}.mp3 
+    #fi
+    #if [ "${audio_file[2]}" != "${audio_file[3]}"  ]
+    #then
+        #play ~/en_audio/${audio_file[3]}.mp3 
+    #fi
 
     #echo `cat $1 | sed -n ${current_line}p | cut -d- -f1 ` 
     #xterm -e "bash -c \"play ~/en_audio/${audio_file}.mp3 && exit; exec bash\"" &
