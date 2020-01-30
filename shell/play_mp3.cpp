@@ -13,7 +13,7 @@ using std::cout;
 
 int main(int arguments_count, char** arguments)
 {
-    cout << "argument[1] = " << arguments[1];
+    //cout << "argument[1] = " << arguments[1];
     if (arguments_count != 2)
     {
         cout << "there are not 2 arguments";
