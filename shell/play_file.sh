@@ -9,10 +9,11 @@ line_count=`cat $1 | grep -v ^$ | wc --lines`
 current_line=1
 audio_file=""
 old_pwd=`pwd`
+audio_folder="/mnt/c/en_audio"
 
 echo "playing a file: $1"
-echo "a file has $line_count lines"
-echo "a folder with audio: `du -h ~/en_audio`"
+echo "the file has $line_count lines"
+echo "an audio folder size: `du -h $audio_folder`"
 echo ""
 
 #echo `cat $1 | sed -n 1p`
@@ -66,11 +67,15 @@ do
     #echo "file = $audio_file"
     #file  "~/en_audio/${audio_file}.mp3"
     
-    play ~/en_audio/${audio_file[0]}.mp3 
-    if [ "${audio_file[0]}" != "${audio_file[1]}" ]
-    then
-        play ~/en_audio/${audio_file[1]}.mp3 
-    fi
+    cd %audio_folder
+    #./play.exe "C:\\file.mp3"
+    ./play.exe "${audio_file[0]}"
+
+    #play ~/en_audio/${audio_file[0]}.mp3 
+    #if [ "${audio_file[0]}" != "${audio_file[1]}" ]
+    #then
+        #play ~/en_audio/${audio_file[1]}.mp3 
+    #fi
     #if [ "${audio_file[1]}" != "${audio_file[2]}"  ]
     #then
         #play ~/en_audio/${audio_file[2]}.mp3 
