@@ -1,14 +1,15 @@
 #!/bin/bash
 
-# install 
-# 1) give a permission
+# an instruction
+# 1) install g++ downloading MinGW Installation Manager
+# 2) give a permission to a script
 # chmod u+x play_file.sh
-# alias inst='sudo apt-get install'
+# make some directories
 # cd /mnt/c && mkdir code && mkdir en_audio && cd code
-# git clone
-# alias enp='/mnt/c/code/cpp_code/shell/./play_file.sh'
-# run cmd and compile an app
+# 3) clone reposytory with git clone
+# 4) run cmd and compile an app
 # g++ C:\\code\cpp_code\shell\play_mp3.cpp -o C:\\en_audio\play.exe -lWinmm
+# alias enp='/mnt/c/code/cpp_code/shell/./play_file.sh'
 # enp /mnt/c/code/english_language/words/words_1.txt
 
 clear
@@ -22,25 +23,13 @@ fi
 
 line_count=`cat $1 | grep -v ^$ | wc --lines`
 current_line=1
-#audio_file=""
 
 echo "playing a file: $1"
 echo "the file has $line_count lines"
 echo "an audio folder size: `du -h $audio_folder`"
-echo ""
-
-#echo `cat $1 | sed -n 1p`
-#echo $ "line count: $line_count"
-
-function replace()
-{
-    #echo "replace " $1
-    $1="bla"
-    #$1=`echo $1 | sed 's/smb/somebody/g'`
-}
+sleep 1
 
 while [ $current_line -le $line_count ]
-#while [ $current_line -le 2 ]
 do
     # get a next line
     cd $start_folder
@@ -48,6 +37,7 @@ do
 
     # remove useless symbols
     original_line=$line
+    line=`echo $line | tr '.' ' '` # dots
     line=`echo $line | tr ',' ' '`
     line=`echo $line | sed 's/|.*|//g'` # pipes
     line=`echo $line | sed 's/(.*)//g'` # braces
@@ -98,7 +88,7 @@ do
     echo $original_line
     echo ""; echo "$current_line / $line_count"
 
-    # a loop for playing
+    # a loop for playing sounds
     for file in "${audio_file[@]}"
     do
         ./play.exe "$file.mp3"
