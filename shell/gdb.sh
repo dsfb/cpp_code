@@ -20,6 +20,8 @@ gdb -s SYMBOLS_FILE -e PROGRAM_NAME
 gdb -quiet PROGRAM_NAME
 gdb PROGRAM_NAME --args arg1 arg2
 gdb app.exe
+(gdb) set args ch248ds 0
+(gdb) show args
 > break main
 > layout next
 > start
@@ -72,6 +74,8 @@ clear FUNCTION_NAME  - delere all breakpoints in function
 enable - włączyć wszystkie breakpoints
 disable - odłączyć wszystkie breakpoints
 
+(gdb) set args <argument one> <argument two>
+(gdb) show args
 info b - list of breakpoints
 edit [file:]function - look at the program line where it is presently stopped
 delete BREAK_POINT_NUMBER - delete break point
