@@ -1,18 +1,24 @@
+# add your user to the docker group.
+sudo su -
+groupadd docker
+usermod -aG docker $USER
+exit
+
 # your images and containers
 docker images 
 docker ps # shows you all containers that are currently running
 docker ps -a # a list of all containers that we ran
 docker container ls -a # all your containers
 
+# load an image from *.tar archive
+docker load --input <tar archive>
+docker load < <tar archive>
+
 # remove an image
 docker image rm <image name>
 
 # load an image from a registry
 docker pull <image>
-
-# load an image from *.tar archive
-docker load --input <tar archive>
-docker load < <tar archive>
 
 # create new a container from an image
 docker run  -d --name <name>  -it <image id>  bash  # it gives an unique name for a container
