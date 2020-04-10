@@ -32,6 +32,6 @@ int main(int arguments_count, char** arguments)
 }
 
 /*
-https://sourceforge.net/projects/mingw/
+https://osdn.net/projects/mingw/releases/
 g++ play_mp3.cpp -o play.exe -lWinmm && ./play.exe "C:\\file.mp3"
 */

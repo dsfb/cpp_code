@@ -1,7 +1,7 @@
 # add your user to the docker group.
 sudo su -
 groupadd docker
-usermod -aG docker $USER
+usermod -aG docker <user name>
 exit
 
 # your images and containers
