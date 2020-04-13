@@ -3,7 +3,7 @@ whereis g++
 file g++
 g++ --version
 
-# where g++ files was installed
+# where g++ files was installed?
 sudo dpkg --listfiles <package name>
 
 # the installation process

@@ -1,17 +1,13 @@
 <html>
 <head>
     <style>
-        body {background-color: rgb(36, 39, 39);
+        body {
         font-size: large;
-        color:rgb(223, 219, 219)
         }
-        h1 {color: rgb(216, 141, 141);}
-        h2 {color: rgb(216, 141, 141);}
-        h3 {color: rgb(216, 141, 141);}
-        p {color:rgb(215, 215, 215);}
      </style>
 </head>
 <body>
+    <h1><a href="https://github.com/fffaraz/awesome-cpp">all tools and libraries are here</a></h1>
     <h1>visual code extensions</h1>
     <ul>
         <li>atom the dark theme</li>
@@ -33,18 +29,14 @@
         <li>putty - the ssh client for Windows. the pointer: the putty keys are not compatibele with ~/.ssh/ keys in Linux
         </li>
     </ul>
+    <hr><br>
 
     <h1>libraries</h1>
     <h2>graphical user interface</h2>
     <ul>
-        <li>
-            <p>qt quick (qml language + java script)</p>
-        </li>
-        <li>
-            <p>qt widgets (older technology)</p>
-    </ul>
+        <li>qt quick (qml language + java script + opengl)</li>
+        <li>qt widgets (older technology)</ul>
     </li>
-    <hr><br>
 
     <h2>threads</h2>
     <a href="https://www.cs.cmu.edu/afs/cs/academic/class/15492-f07/www/pthreads.html">POSIX thread (pthread)
@@ -52,28 +44,45 @@
     <p>C++ thread header file: thread, mutex</p>
 
     <h2>network</h2>
-    <p><a href="https://github.com/civetweb/civetweb">civet web</a> - the http web server for C++ </p>
-    <p>POCO library - this is the framework</p>
+    <ul>
+        <li>POCO library - the framework; network, tcp ip, http, logs, utf8</li>
+        <li><a href="https://github.com/cocagne/csrp">srp6</a>- the protocol to authorize; for games</li>
+        <li>winsock - windows sockets tcp ip library</li>
+        <li><a href="https://github.com/civetweb/civetweb">civet web</a> - the http web server for C++</li>
+    </ul>
 
     <h2>file formats</h2>
     <p>ini</p>
 
     <h2>linux system functions</h2>
-    <p><a href="https://pubs.opengroup.org/onlinepubs/7908799/xsh/unistd.h.html">unistd - to create a fork process,
-            execute a command, get the system information </a></p>
-
-    <p><b>signals /usr/include/signal.h</b> - to send signals (such like SIGTERM, SIGUSR1) from a user to an app and define how the app will react on them</p>
-
-    <h1>debugger tools</h1>
     <ul>
+        <li><a href="https://pubs.opengroup.org/onlinepubs/7908799/xsh/unistd.h.html">unistd</a> - to create a fork process,
+            execute a command and get the system information</li>
+        <li><b>signals /usr/include/signal.h</b> - to send signals (such like SIGTERM, SIGUSR1) from a user to an app and define how the app will react on them</li>
+    </ul>
+    <hr><br>
+
+    <h1>to debug and analize binary files</h1>
+    <ul>
+        <li>cutter - the decompiler c++ and beta debugger based on radare2</li>
         <li>strings - this is GCC tool to show strings inside a binary file</li>
-        <li><b>nm</b> - to show function names in a binary file</li>
+        <li><b>nm</b> - to show function names in a binary file unless the binary file is stripped</li>
         <li>gdb - gnu debugger for linux</li>
         <li>x86dbg - open source debugger</li>
         <li>Fidder - to analize http traffic</li>
         <li>WireShark - to analize tcp/ip, sip and other traffic</li>
         <li>ghidra - c++ decompiler</li>
-        <li>ida debugger and decompiler</li>
+        <li>ida - the debugger and c++ decompiler</li>
+        <li><a target="_blank" href="https://github.com/radareorg/radare2/projects">radare2</a> - UNIX-like reverse engineering framework and command-line toolset </li>
+    </ul>
+    <h1>testing</h1>
+    <ul>
+        <li>google tests - c++ library to perform tests</li>
+        <li><a href="https://github.com/meekrosoft/fff">Fake Function Framework for C</a> - fake function framework - to imitate functions</li>
+    </ul>
+    <h1>to create own web site from scratch</h1>
+    <ul>
+        <li>git pages + jekyll (the static site generator) https://jekyllrb.com/docs/</li>
     </ul>
 </body>
 </html>
