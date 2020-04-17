@@ -48,6 +48,7 @@ docker build . # build  here
 
 docker image history --no-trunc image_name > image_history # build history
 
-
+# to build the image with files in current directory
+docker build --file <file name>.dockerfile  . > log
 docker commit <container> <new image name>
 docker exec -it <container> <command like /bin/bash/> # run shell inside runned image
