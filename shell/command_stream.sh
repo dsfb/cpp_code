@@ -115,14 +115,14 @@ ls -l -s -S -r # largest files are on bottom
 -s # print file size
 
 psql -d coś_tam -U postgres -w -c "COPY (__TU_WKLEIĆ_ZAPYTANIE__) TO STDOUT WITH CSV HEADER " > plik.csv
+
+# paste command: to combite many outputs
+paste <(command one) <(command two)    >    <save to the file>
+
+# cut command: to cut off some fields from the text file
 cat  <file name>  | awk -F "-"  '{print $2 " - " $1}' # flip=revert columns
 cut -d '-' -f2 # cut off the second column
-
-grep
--i          # ignore case
--B <amount> # before
--A <amount> # after
--C <amount> # before and after
+paste  <(cat allw | cut -d'-' -f2) <(cat allw | cut -d'-' -f1) > result
 
 free -m # check your memory in megabytes
 df -h # check your disks' free memory
@@ -223,40 +223,6 @@ echo $OLDPWD
 touch {1,2,3}.txt # array. creates three files
 ^$ # start and end of line
 \'
-
-# regular expressions
-^$      # beginning and the end of line
-*       # 0 or more
-+       # 1 or more
-?       # 0 or one (optional)
-.       # exactly one except new line
-{x}     # exactly x symbols
-{a,b}   # range: from a to b
-\.      # simple dot symbol
-\n      # new line
-\t      # tab
-\d      # digit
-\s      # space
-\w      # word character (like [a-zA-Z])
-[]      # some ranges or expected symbols
-[0-9]   # all digits like \d
-[a-z]   # range: from a to z like \w
-[abc]   # a,b or c
-[^abc]   # not abc
-()      # group
-|       # logical 'or'
-(|)     # group with "or"
-
-(^\w|\w$)   # matches the first or last line symbol
-[0-9]{2,}   # matches 2+ digits 
-^[0-9]{3}$  # matches exactly 3 digits
-[a-z0-9_]   # a-z, 0-9 and underscore
-
-# repeate patterns
-.{1}    # exactly one times
-.*      # 0 or more times   
-.+      # 1 or more times
-.?      # 0 or one
 
 ps -a # select all processes
 ps -p <process id>
