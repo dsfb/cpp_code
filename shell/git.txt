@@ -9,17 +9,24 @@ HEAD~2 = HEAD^^
 HEAD~1 = HEAD^
 HEAD~0 = HEAD
 
-# set meld and start the megring process
-git config --global diff.tool meld
-git config --global merge.tool meld
-git config --global --add difftool.prompt false # don't show prompt
-meld . 
-
+# it configures your git
 git config --global http.proxy http://xxx.xxx.xxx.xxx:port # how to set http proxy
 git config --global user.name "name surname" # to set user's name
 git config --global core.excludesfile ~/.gitignore # set global git-ignore file
 git config --global core.editor "vim"  # set vim as main text editor
 git config --global --list (-l)     # all git configurations
+
+# set new ssh key
+ssh-keygen -t rsa -b 4096 -C "email or your name"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+
+# set meld and start the megring process
+git config --global diff.tool meld
+git config --global merge.tool meld
+git config --global --add difftool.prompt false # don't show prompt
+cd <folder with changed files> && meld . 
+
 git checkout <commit hash> <file name> # cofąć plik do stanu jakiegoś comita
 git add . && git commit -m "update" && git push
 git reset HEAD .  # unstage
