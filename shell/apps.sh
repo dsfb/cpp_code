@@ -8,10 +8,10 @@ inst openjdk-8-jdk # java 8
 
 # git and the tool for merging
 inst git-all
-inst meld
+inst meld # the gui merging tool for git
 
 inst sshfs
-inst redshift-gtk  # https://github.com/jonls/redshift
+inst redshift-gtk  # the night light - https://github.com/jonls/redshift
 inst flashplugin-installer
 inst pkg-config
 inst vim
@@ -24,9 +24,10 @@ inst xclip
 inst nmap
 inst mailutils # to mail and reply
 inst docker.io
-inst wireshark # a tool that captures and analyzes packets 
+inst wireshark # the tool that captures and analyzes packets 
+inst unity-tweak-tool # to amend the theme or icons, to castomize the system
 
-inst libbsd-dev # strcpy
+inst libbsd-dev # strcpy() function
 inst libgmock-dev # google mock
 
 # optional below
