@@ -2,23 +2,26 @@
 
 alias inst='sudo apt-get install'
 
+inst g++-10 g++-10-multilib
 inst gcc-8 gcc-8-multilib 
-inst g++-8 g++-8-multilib
 inst openjdk-8-jdk # java 8
 
 # git and the tool for merging
 inst git-all
 inst meld # the gui merging tool for git
 
+inst ack
+inst make
+inst cmake
+
 inst sshfs
+inst tree
 inst redshift-gtk  # the night light - https://github.com/jonls/redshift
 inst flashplugin-installer
 inst pkg-config
 inst vim
 inst apt-file
-inst cmake
 inst net-tools # ifconfig
-inst tree
 inst mc # file manager
 inst xclip
 inst nmap
