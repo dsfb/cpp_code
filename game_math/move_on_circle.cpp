@@ -11,6 +11,10 @@ https://www.mathsisfun.com/sine-cosine-tangent.html
 https://www.mathsisfun.com/geometry/unit-circle.html
 
 
+and next I came to the conclusion that all I have to find is two sides of triangle
+that are inside our circle
+
+
 y
 ^
 |
