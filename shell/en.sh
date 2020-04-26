@@ -28,7 +28,8 @@ echo "$2 $wymowa - $translate" | xclip -selection c
 #notify-send "$2" "$(xclip -out -selection clipboard)"
 
 
-#how zainstalować?
+# how zainstalować?
+# 1) sudo apt-get install curl
 #cd ~
 #touch en
 #vim en # wpisać skrypt
