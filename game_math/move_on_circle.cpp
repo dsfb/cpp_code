@@ -4,13 +4,17 @@ implement function update() in order to move an object on a circle trajectory
 
 my solution:
 at the beginning I plan to read about the circle and I read this
+https://www.mathsisfun.com/definitions/sine.html
+https://www.mathsisfun.com/right_angle_triangle.html
 https://www.mathsisfun.com/pythagoras.html
 https://www.mathsisfun.com/sine-cosine-tangent.html
 https://www.mathsisfun.com/geometry/unit-circle.html
 
 
-x
-^	    . p (px, py)
+y
+^
+|
+|	     . p (px, py)
 |       /|
 |      / |
 |    c/  |b
@@ -20,21 +24,26 @@ x
 | /      |
 |/sin____|
 |    a    
--------------->y
+--------------------------> x
 
 1) p (px, py) - this is the point on the circle that we want to know to build full circle
 2) there is triangle with sides a, b and c as you can see
 3) there is the angle sin that has coordinates (0, 0)
+4) sin or cos changes from 0 to 2*PI radians or 360 degrees
 
-
+general equasion the this triangle is as follows:
 a^2 + b^2 = c^2
-c = 1 = radius
-c^2 = 1
 
-then 
+where
 
-sin = b / c = b / radius => b = sin * c
-cos = a / c = a / radius => a = cos * c
+a = is x coodrinate of the point p that we are looking for
+b = is y coodrinate of the point p that we are looking for
+c = 1 = radius = hypotenuse of the triangle
+
+then accorging to the definition of the sine
+
+sin = b / c = b / radius 	=> 		b = sin * c
+cos = a / c = a / radius 	=> 		a = cos * c
 
 while
 
@@ -44,7 +53,11 @@ a = py
 other words
 
 p(px, py) = p(a, b)
-the end of math part
+
+so we just found our poins of the circle. the sine and cosine increase from 0 to 
+2*PI radias like I said.
+
+the end of math part.
 
 the command to compile and run below code:
 g++ -Wall -o main move_on_circle.cpp -lGL -lGLEW -lglfw && clear && ./main &
