@@ -14,7 +14,7 @@ https://www.mathsisfun.com/geometry/unit-circle.html
 y
 ^
 |
-|	     . p (px, py)
+|        . p (px, py)
 |       /|
 |      / |
 |    c/  |b
