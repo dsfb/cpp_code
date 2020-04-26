@@ -11,11 +11,8 @@ inst libglfw3-dev
 inst libglm-dev 
 inst libgl-dev
 
-to do:
-add full velocity emitation. the object will have to move with velocity 
-1 meter per 1 second.
-
 my solution:
+https://www.mathsisfun.com/geometry/unit-circle.html
 */
 #include "game_engine.h"
 
