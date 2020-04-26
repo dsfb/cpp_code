@@ -1,6 +1,50 @@
  /*
 the task:
-create function in order to move an object on a circle trajectory
+implement function update() in order to move an object on a circle trajectory
+
+my solution:
+at the beginning I plan to read about the circle and I read this
+https://www.mathsisfun.com/pythagoras.html
+https://www.mathsisfun.com/sine-cosine-tangent.html
+https://www.mathsisfun.com/geometry/unit-circle.html
+
+
+x
+^	    . p (px, py)
+|       /|
+|      / |
+|    c/  |b
+|    /   |
+|   /    |
+|  /     |
+| /      |
+|/sin____|
+|    a    
+-------------->y
+
+1) p (px, py) - this is the point on the circle that we want to know to build full circle
+2) there is triangle with sides a, b and c as you can see
+3) there is the angle sin that has coordinates (0, 0)
+
+
+a^2 + b^2 = c^2
+c = 1 = radius
+c^2 = 1
+
+then 
+
+sin = b / c = b / radius => b = sin * c
+cos = a / c = a / radius => a = cos * c
+
+while
+
+b = px
+a = py
+
+other words
+
+p(px, py) = p(a, b)
+the end of math part
 
 the command to compile and run below code:
 g++ -Wall -o main move_on_circle.cpp -lGL -lGLEW -lglfw && clear && ./main &
@@ -11,8 +55,6 @@ inst libglfw3-dev
 inst libglm-dev 
 inst libgl-dev
 
-my solution:
-https://www.mathsisfun.com/geometry/unit-circle.html
 */
 #include "game_engine.h"
 
