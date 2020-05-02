@@ -2,7 +2,7 @@
 there is small example of using concepts that are appeared in c++20 standard.
 
 there are two new keywords:
-concept <concept> - describes the type of the future concept
+concept <name> - describes the type of the future concept
 requires - rescribes requirements or constraints
 
 co compile and run:
