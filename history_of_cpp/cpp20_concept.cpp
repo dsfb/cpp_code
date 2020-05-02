@@ -7,6 +7,7 @@ requires - rescribes requirements or constraints
 
 co compile and run:
 clear && g++ --std=c++20 -o main cpp20_concept.cpp && ./main
+gcc version 10.0.1 20200411 (experimental)
 
 
 the author:
