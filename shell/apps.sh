@@ -27,6 +27,7 @@ inst xclip
 inst nmap
 inst mailutils # to mail and reply
 inst docker.io
+inst minikube # only local kubernetes (kubectl) 
 inst wireshark # the tool that captures and analyzes packets 
 inst unity-tweak-tool # to amend the theme or icons, to castomize the system
 
