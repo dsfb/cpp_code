@@ -260,15 +260,15 @@ git bisect bad - I say that current commit is bad
 git bisect goood - I sat that current commit is goood
 git status - to check where am i
 git bisect reset
--- -- -- -- -- -- -- -- -- -- -- -- --
 
-# git
+
+# git aliases
 alias gg="git gui &"
 alias back="git checkout ."
 alias backcommit="git reset --soft HEAD~1"
 alias unstage="git reset --mixed HEAD"
 alias gitc="git checkout"
-alias gitl="git log --oneline"
+alias gitl="git log --oneline --name-only"
 alias revoke="backcommit"
 alias revert="git revert --no-commit HEAD~0"
 alias lastcom="git log --pretty=format:'%h' -n 1 | cat"
