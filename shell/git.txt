@@ -66,6 +66,7 @@ git remote add origin <server> - podać adres zdalnego repo, skąd zaciągne bę
 REPOSITORY INFORMATION - INFORMACJE O GAŁĘZIACH, ZMIANACH I REPOZYTORIUM
 git cat-file -p <commit hash> - shows information about a some commit
 git reflog - will display any change which updated the HEAD
+git log --name-only - show files that was changed
 git log remote/branch - pokazać log innego remote branch po wypodaniu git fetch
 git log --follow -p -- FILE_NAME  - historia zmian dla pliku
 git log - pokazać wszystkie zapisane zmiany (kommity) (q - exit)
