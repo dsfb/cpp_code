@@ -30,6 +30,7 @@ inst docker.io
 inst minikube # only local kubernetes (kubectl) 
 inst wireshark # the tool that captures and analyzes packets 
 inst unity-tweak-tool # to amend the theme or icons, to castomize the system
+inst kazam # record a desktop; make video, screenshot; capture a screen
 
 inst libbsd-dev # strcpy() function
 inst libgmock-dev # google mock
