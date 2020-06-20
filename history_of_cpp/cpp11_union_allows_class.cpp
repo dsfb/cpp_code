@@ -1,4 +1,11 @@
 /*
+since c++11 you are allowed to put an instance of a class inside your union.
+prior to c++11 you could add to an union only a plain data like struct with no 
+constructors and desctructors or int, short and such like.
+since c++17 we can substitute unions for std::variant<> class.
+
+below there is an example that shows you how a server and client can talk with
+each other with miscellaneous messages that was defined inside an union.
 
 the command so that to compile it:
 g++ -std=c++98 cpp11_union_allows_class.cpp -o main && ./main
@@ -82,6 +89,6 @@ int main()
     // the server side
     server_receive(type, m);
 
-    cout << sizeof(message) << endl; // 8
+    cout << sizeof(message) << endl; // 8 (c++98)
     return 0;
 }
