@@ -6,6 +6,13 @@ using namespace std;
 
 enum message_type { one, two };
 
+struct not_plain_data
+{
+    float some_data;
+    not_plain_data(float from) : some_data(from) {}
+    operator float() const { return some_data; }
+};
+
 #pragma pack(1)
 typedef struct
 {
@@ -13,6 +20,7 @@ typedef struct
     {
         int one;
         double two;
+        not_plain_data three; // since c++11
     } contents;
 } message;
 #pragma pack()
