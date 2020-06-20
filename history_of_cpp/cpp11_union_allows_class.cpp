@@ -1,5 +1,7 @@
 /*
-g++ -std=c++98 union_and_cast.cpp -o main && ./main
+
+the command so that to compile it:
+g++ -std=c++98 cpp11_union_allows_class.cpp -o main && ./main
 */
 #include <iostream>
 using namespace std;
