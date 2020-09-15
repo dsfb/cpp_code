@@ -1,22 +1,23 @@
-/* show me how does an inharitance works in C++ */
+/* show me how an inharitance works in C++ */
 
 // kształt
 class shape
 {
 public:
-	// virtual is mandatory for a polimorphic class
+	// virtual keyword is mandatory for a polimorphic class
+	// =0 means that a function must be defined in a child class
 	virtual int get_area() = 0;
-	// virtual means: I want to use last available method - said the pointer.
-	// it calls "late binding"
-	// moreover, the destructor must have a body in order to delete the object
-	// (child will call him after itself)
+	// virtual means: I want to use last available method - said a pointer.
+	// it is called "late binding"
+	// moreover, a destructor must have a body in order to delete the object
+	// (child will call him after its destructor)
 	virtual ~shape() {};
 };
 
 class rectangle : public shape
 {
 public:
-	// virtual is optional for child' class
+	// "virtual" keyword is optional for a child class
 	virtual int get_area() override {
 		return height * width;
 	} 
