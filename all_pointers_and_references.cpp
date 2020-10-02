@@ -13,18 +13,22 @@ using pointer_to_type = type*;
 using pointer_to_const_type = const_type*;
 using const_pointer_to_const_type = pointer_to_const_type const;
 
-using reference_to_type = type&;
-using const_reference_to_type = const_type&;
+using reference_to_type = type&; // change original value
+using reference_to_const_type = const_type&; // only see
 
+// you can change an original pointer address and a variable value
 using reference_to_pointer_to_type = pointer_to_type&;
-using const_reference_to_pointer_to_type = pointer_to_type const&;
-using const_reference_to_pointer_to_const_type = pointer_to_const_type const&;
+// you can change an original pointer address
+using reference_to_pointer_to_const_type = pointer_to_const_type &;
+// unless you have a referecne you can't change either address not value
+// this is useless one
+using reference_to_const_pointer_to_const_type = const_pointer_to_const_type &;
 
 void test_rtptt()
 {
-    int var = 100;
-    pointer_to_type ptt = &var;
-    int v = 2;
+    type variable = 100;
+    pointer_to_type ptt = &variable;
+    //int v = 2;
     auto use_rtptt = [](reference_to_pointer_to_type rtptt)
     {
         *rtptt = 200;
