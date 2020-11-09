@@ -1,0 +1,20 @@
+before add to review:
+1) check if the application is compiled without errors
+2) verify whether there is a header guard inside *.h files
+3) check if comments are correct and up-to-date
+4) function prototypes probably shoud have ' extern "C" ' block if:
+- you write C++ code that you will use in C programs
+- you will compile C code with C++ compiler in the future
+5) a commit message is correct and good enough
+6) tests of new functionality was performed
+7) there are no needless blank spaces at the end of lines
+8) the new code uses tabs or spaces as well as the previous code does
+9) make the destructor of the class be virtual
+10) remove all helpless comments that shoudn't be in the final version
+11) new *.cpp files must be added to the *.MakeFile
+12) run unit tests
+13) one-line if statement must be as follows:
+ 
+bool result = ((a == 1) ? true : false)
+
+to avoid the misinterpretation.
