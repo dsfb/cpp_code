@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# this is a small script that I used to translate words form pl to en language.
+# it sends http requests and parses html code to get a translation and transcription.
+# currently I don't use it anymore is down to I reworked it with python language.
+
 clear
 echo $2
 #direction="en-pl"
@@ -28,7 +32,7 @@ echo "$2 $wymowa - $translate" | xclip -selection c
 #notify-send "$2" "$(xclip -out -selection clipboard)"
 
 
-# how zainstalować?
+# how to install this script?
 # 1) sudo apt-get install curl
 #cd ~
 #touch en
